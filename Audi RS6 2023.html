@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head> <!--Используется для системной (не выводимой на страницу) информации-->
+    <meta charset="UTF-8"> <!--Кодировка символов страницы -->
+    <link rel="stylesheet" href="./index.css"> <!--Ссылка index.html на index.css как на таблицу стилей-->
+    <title>Drive City - Прокат автомобилей</title> <!--Название во вкладке страницы-->
+    <link rel="icon" href="favicon.ico" sizes="any"> <!--Фавиконка (изображение 16х16 / 32х32) во вкладке страницы-->
+</head>
+<body> <!--Главное тело сайта. Отображается у пользователя-->
+    <header>
+        <style>
+            main{
+                padding-left: 10vw;
+                padding-right: 10vw;
+            }
+            h1{
+                transform: translateX(1em);
+                font-size:xx-large;
+            }
+            #characteristics{
+                display:flex;
+                flex-flow:row wrap;
+                gap:30px;
+            }
+        </style>
+        <nav>
+            <span id="logo"><div id="drive">Drive</div> <div id="city">City</div></span>
+            <a href="https://auto.ru/" target="_blank">Автопарк</a>
+            <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
+            <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
+            <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
+            <button id="login" onclick="">Войти</button>
+            <a href=""><img src="support.png" width="50px"></a>
+        </nav>
+    </header>
+    <main>
+        <h1>Audi RS6</h1>
+        <div>
+            <img src="./cars/Audi-RS6-Transparent-File.png" width="500px">
+            <section id="characteristics">
+
+            </section>
+        </div>
+    </main>
+</body>

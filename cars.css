@@ -1,0 +1,43 @@
+.cars a{
+    text-decoration: none;
+    color:black;
+    padding:0px;
+}
+.cars{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap:20px;
+    /*font-family: Graphik, Arial, Verdana, sans-serif;*/
+}
+.cars>div>a>img{
+    max-width: 250px;
+    max-height: 200px;
+    border-radius: 20px;
+}
+.cars a>*{
+    margin-block-end: 2pt;
+}
+.defined_car{
+    padding:20pt;
+    background-color:rgb(246, 243, 252);
+    border-radius:20px;
+}
+.green{
+    color:green
+}
+.left{
+    text-align:left;
+}
+.right{
+    text-align:right;
+}
+.grey{
+    color:grey;
+}
+.lighter{
+    font-weight:lighter;
+}
+.inline{
+    display:inline;
+}
