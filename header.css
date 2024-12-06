@@ -1,0 +1,43 @@
+nav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: beige;
+    box-sizing: content-box;
+    min-width:100%;
+}
+nav img{
+    vertical-align: middle;
+}
+#logo{
+    display:inline-flex;
+    /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
+    font-size: xx-large;
+    font-weight: bolder;
+    align-items:center;
+}
+#drive{
+    color:rgb(89, 20, 154)
+}
+#city{
+    color:rgb(12, 113, 12)
+}
+#drive,#city{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.hidden{
+    display:none
+}
+nav a{
+    text-decoration: none;
+}
+nav a:active{
+    background-color: blueviolet;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+nav a:visited{
+    text-shadow: darkcyan 1px 1px 10px;
+}
