@@ -50,9 +50,6 @@ h1{
     font-size: x-large;
     font-weight: bolder;
 }
-h2{
-    background-color: aquamarine;
-}
 .flexbox{
     display:flex;
     flex-flow: row wrap;

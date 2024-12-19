@@ -8,6 +8,9 @@
 <body> <!--Главное тело сайта. Отображается у пользователя-->
     <header>
         <style>
+            *{
+                box-sizing: border-box;
+            }
             main{
                 padding-left: 10vw;
                 padding-right: 10vw;
@@ -16,14 +19,197 @@
                 transform: translateX(1em);
                 font-size:xx-large;
             }
-            #characteristics{
+            h2.Prokat_h2{
+                font-family: Citymobil, sans-serif;
+                font-size: 32px;
+                line-height: 42px;
+            }
+            a{
+                text-decoration: none;
+            }
+            #logo{
+                color:black
+            }
+            .CarAndForm{
+                display:flex;
+                flex-flow:row nowrap;
+            }
+            .CarInfo{
                 display:flex;
                 flex-flow:row wrap;
-                gap:30px;
+                gap:48px 0;
+                width:60%;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+            .car_img{
+                max-width:804px;
+            }
+            .car_details{
+                display:flex;
+                flex-direction: column;
+            }
+            .car_details_2{
+                display:flex;
+                flex-flow:row wrap;
+                gap:48px 0;
+                margin-right: 0;
+                margin-left: 0;
+            }
+            .CarDetailWrapper{
+                padding-left:0;
+                padding-right:0;
+                width:50%;
+                min-width:30%;
+            }
+            .CarDetail
+            {
+                display:flex;
+                gap:0 32px;
+            }
+            .detail_icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 64px;
+                width: 4rem;
+                min-height: 4rem;
+                height: 4rem;
+                border-radius:50px;
+                background-color:#f5f6fa
+            }
+            .detail_content{
+                display: flex;
+                flex-direction: column;
+                gap:8px 0;
+                width:100%;
+                max-width:24.5em;
+            }
+            .detail_content_name{
+                font-size:18px;
+                line-height: 24px;
+            }
+            .detail_content_description{
+                font-size: 20px;
+                font-weight:600;
+                line-height: 28px;
+            }
+            #styles_items{
+                display:flex;
+                flex-flow: row wrap;
+                margin: 0 auto;
+                box-sizing:border-box;
+            }
+            .FormInfo{
+                min-width:20em;
+                width:max-content;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+                font-size:18px;
+                line-height: 22px;
+            }
+            .content_gap_32px{
+                display:flex;
+                flex-flow:column nowrap;
+                gap: 32px 0;
+            }
+            .content_gap_20px{
+                display:flex;
+                flex-flow:column nowrap;
+                gap: 20px 0;
+            }
+            .content_gap_8px{
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 8px 0;
+            }
+            .space-between{
+                display:flex; 
+                flex-flow:row nowrap; 
+                justify-content: space-between; 
+                color:grey; 
+            }
+            .date_input_container{
+                display:flex;
+                flex-flow: row nowrap;
+                gap: 0 8px;
+                overflow:hidden;
+                justify-content: space-between;
+            }
+            .input_tag{
+                display:flex;
+                align-items: center;
+                padding: 14px 20px;
+                border: 1px solid transparent;
+                background-color: #f5f6fa;
+                border-radius: 12px;
+                cursor: pointer;
+                user-select: none;
+            }
+            .input_value{
+                overflow: hidden;
+                margin-right: 0.5rem;
+                font-family: Graphik, sans-serif;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+                white-space: nowrap;
+                background-color: transparent;
+                border: none;
+            }
+            input.input_value:focus{
+                border:none;
+                background-color: transparent;
+            }
+            .flex-grow{
+                flex-grow: 1;
+            }
+            .arrow_down{
+                display:flex;
+                align-items: center;
+            }
+            .inline-flex{
+                display: inline-flex;
+            }
+            .flex_checkbox{
+                display:inline-flex;
+                gap:0 12px;
+                min-height:16px;
+                align-items:center;
+                white-space: nowrap;
+                vertical-align: top;
+            }
+            .checkbox_wrapper{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 24px;
+                width:24px;
+                min-height: 24px;
+                height: 24px;
+                border-radius: 8px;
+                background-color: #2fc25d;
+            }
+            .checkbox_text::after{
+                white-space: nowrap;
+                font-size: 18px;
+                line-height: 24px; 
+                content: "Возврат в другом месте"
+            }
+            .hidden_checkbox{
+                position:absolute;
+                opacity: 0;
+                height:0;
+                width:0;
+            }
+            .smaller{
+                font-size: 14px;
+                line-height: 20px;
             }
         </style>
         <nav>
-            <span id="logo"><div id="drive">Drive</div> <div id="city">City</div></span>
+            <span id="logo"><a href="index.html"><div id="drive">Drive</div> <div id="city">City</div></a></span>
             <a href="https://auto.ru/" target="_blank">Автопарк</a>
             <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
             <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
@@ -33,12 +219,197 @@
         </nav>
     </header>
     <main>
-        <h1>Audi RS6</h1>
         <div>
-            <img src="./cars/Audi-RS6-Transparent-File.png" width="500px">
-            <section id="characteristics">
+            <h2 class="Prokat_h2">Прокат Audi RS6 2023 в Москве</h2>
+            <div class="CarAndForm">
+                <section class="CarInfo">
+                    <div class="car_img">
+                        <img src="./cars/Audi-RS6-Transparent-File.png" width="500px">
+                    </div>
+                    <div class="car_details">
+                        <div class="car_details_2">
+                            <div class="CarDetailWrapper">
+                                <div id="detail_0" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <img src="./fuel_pump.png" width="24" height="24" fill="none">
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Топливо</div>
+                                        <div class="detail_content_description">Бензин</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_1" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" d="M2.714 17.023a.73.73 0 0 1-.505-.2.67.67 0 0 1-.209-.482v-5.455c0-.243.136-.468.357-.59a.74.74 0 0 1 .715 0c.22.121.357.347.357.59v5.455c0 .18-.075.354-.21.482a.73.73 0 0 1-.505.2"></path>
+                                            <path fill="#0D0C24" d="M4.857 14.296H2.714a.72.72 0 0 1-.618-.341.66.66 0 0 1 0-.682.72.72 0 0 1 .618-.341h2.143c.255 0 .491.13.619.34a.66.66 0 0 1 0 .683.72.72 0 0 1-.619.34Z"></path>
+                                            <path fill="#0D0C24" d="M16.286 19.75H9.143a.73.73 0 0 1-.571-.273l-1.929-2.454H4.857a.73.73 0 0 1-.505-.2.67.67 0 0 1-.209-.482v-6.136c0-.181.075-.355.209-.483a.73.73 0 0 1 .505-.2h1.429V8.16c0-.18.075-.354.209-.482a.73.73 0 0 1 .505-.2h7.143a.73.73 0 0 1 .557.26l2.643 3.15h.371V9.522c0-.18.075-.354.21-.483a.73.73 0 0 1 .505-.199h1.428c.569 0 1.114.215 1.515.6A2 2 0 0 1 22 10.885v5.455c0 .543-.226 1.063-.628 1.446-.402.384-.947.6-1.515.6H18.43a.73.73 0 0 1-.506-.2.67.67 0 0 1-.209-.482V16.34H17v2.727a.67.67 0 0 1-.209.482.73.73 0 0 1-.505.2ZM9.5 18.386h6.072V15.66c0-.18.075-.354.209-.482a.73.73 0 0 1 .505-.2h2.143c.189 0 .37.072.505.2a.67.67 0 0 1 .209.482v1.364h.714c.19 0 .371-.072.506-.2a.67.67 0 0 0 .208-.482v-5.455a.67.67 0 0 0-.209-.482.73.73 0 0 0-.505-.2h-.714v1.364a.67.67 0 0 1-.21.483.73.73 0 0 1-.504.2H17a.73.73 0 0 1-.557-.26L13.8 8.841H7.714v1.364c0 .18-.075.354-.209.482a.73.73 0 0 1-.505.2H5.572v4.772H7c.225 0 .437.101.572.273zm3.929-12.272H7.714a.72.72 0 0 1-.618-.341.66.66 0 0 1 0-.682.72.72 0 0 1 .618-.34h5.715c.255 0 .49.13.618.34a.66.66 0 0 1 0 .682.72.72 0 0 1-.618.34Z"></path>
+                                            <path fill="#0D0C24" d="M10.572 8.841a.73.73 0 0 1-.506-.2.67.67 0 0 1-.209-.482V5.432c0-.244.137-.469.357-.59a.74.74 0 0 1 .715 0c.22.12.357.346.357.59v2.727a.67.67 0 0 1-.21.483.73.73 0 0 1-.505.199Z"></path><path fill="#0D0C24" d="M7 10.204H5.182l-.455 6.364H7l2.273 2.273h6.818v-2.727h2.272v1.818h1.819l.909-.91V10.66l-.91-.909h-1.818v1.818h-.909l-3.181-3.182H7v1.819Z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Двигатель</div>
+                                        <div class="detail_content_description">4.0 л, 630 л.с.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_2" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M20.32 8.303c.431 0 .78.342.78.763v2.27l.003 1.525-8.405.015v3.208h-1.56V12.88l-6.489.011v3.15H3.09v-3.147h-.008l-.003-1.524h.012V8.22h1.56v3.145l6.488-.012v-3.09h1.56v3.087l6.843-.012V9.066c0-.421.349-.763.78-.763Z" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M6.453 6.666c0 1.472-1.22 2.665-2.727 2.665C2.222 9.331 1 8.138 1 6.666 1 5.193 2.22 4 3.727 4c1.505 0 2.726 1.193 2.726 2.666"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M3.727 7.807c.644 0 1.167-.511 1.167-1.141S4.37 5.525 3.727 5.525c-.645 0-1.168.51-1.168 1.14s.523 1.142 1.167 1.142Zm0 1.524c1.505 0 2.726-1.193 2.726-2.665C6.453 5.193 5.233 4 3.726 4 2.222 4 1 5.193 1 6.666S2.22 9.33 3.727 9.33Zm7.998-1.388c.723 0 1.308-.572 1.308-1.279 0-.706-.585-1.279-1.308-1.279s-1.308.573-1.308 1.28c0 .706.585 1.278 1.308 1.278m0 1.385c1.505 0 2.725-1.192 2.725-2.664C14.45 5.193 13.23 4 11.725 4S9 5.193 9 6.664s1.22 2.664 2.725 2.664" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M23 6.666c0 1.472-1.22 2.665-2.726 2.665s-2.727-1.193-2.727-2.665c0-1.473 1.22-2.666 2.727-2.666C21.779 4 23 5.193 23 6.666"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M20.274 7.807c.644 0 1.167-.511 1.167-1.141s-.523-1.141-1.167-1.141c-.645 0-1.168.51-1.168 1.14s.523 1.142 1.168 1.142m0 1.524C21.779 9.331 23 8.138 23 6.666 23 5.193 21.78 4 20.274 4s-2.727 1.193-2.727 2.666 1.22 2.665 2.727 2.665" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M6.453 17.334c0 1.473-1.22 2.666-2.727 2.666C2.222 20 1 18.807 1 17.334s1.22-2.665 2.727-2.665c1.505 0 2.726 1.193 2.726 2.665"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M3.727 18.476c.644 0 1.167-.511 1.167-1.142s-.523-1.14-1.167-1.14c-.645 0-1.168.51-1.168 1.14s.523 1.142 1.167 1.142Zm0 1.524c1.505 0 2.726-1.193 2.726-2.666s-1.22-2.665-2.727-2.665C2.222 14.669 1 15.862 1 17.334 1 18.807 2.22 20 3.727 20" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M14.717 17.334c0 1.473-1.221 2.666-2.727 2.666s-2.726-1.193-2.726-2.666 1.22-2.665 2.726-2.665 2.727 1.193 2.727 2.665"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M11.99 18.476c.645 0 1.167-.511 1.167-1.142s-.522-1.14-1.167-1.14c-.644 0-1.167.51-1.167 1.14s.523 1.142 1.167 1.142m0 1.524c1.506 0 2.727-1.193 2.727-2.666s-1.221-2.665-2.727-2.665-2.726 1.193-2.726 2.665c0 1.473 1.22 2.666 2.726 2.666" clip-rule="evenodd"></path>
+                                            <circle cx="4" cy="7" r="2" fill="#0D0C24"></circle><circle cx="12" cy="7" r="2" fill="#0D0C24"></circle>
+                                            <circle cx="20" cy="7" r="2" fill="#0D0C24"></circle><circle cx="12" cy="17" r="2" fill="#0D0C24"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Коробка передач</div>
+                                        <div class="detail_content_description">Автомат</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_3" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <rect width="2.7" height="4.8" x="6.417" y="2.482" stroke="#0D0C24" stroke-width="1.5" rx="0.75" transform="rotate(15 6.417 2.482)"></rect>
+                                            <rect width="2.7" height="4.8" x="16.217" y="2.482" stroke="#0D0C24" stroke-width="1.5" rx="0.75" transform="rotate(15 16.217 2.482)"></rect>
+                                            <path stroke="#0D0C24" stroke-width="1.5" d="M8.5 5.683h6.3"></path>
+                                            <rect width="2.7" height="4.8" x="5.75" y="16.983" stroke="#0D0C24" stroke-width="1.5" rx="0.75"></rect>
+                                            <rect width="2.7" height="4.8" x="15.55" y="16.983" stroke="#0D0C24" stroke-width="1.5" rx="0.75"></rect>
+                                            <path stroke="#0D0C24" stroke-width="1.5" d="M8.5 18.983h6.3m-2.75-13.25v13.3"></path>
+                                            <path fill="#0D0C24" d="m6.594 2.789 1.932.518L7.49 7.17l-1.93-.517zm9.993.051 1.932.518-1.035 3.863-1.932-.517zM16 17h2v5h-2zM6 17h2v5H6z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Привод</div>
+                                        <div class="detail_content_description">Полный</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_4" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" d="m20.346 19.859-1.066-4.02c-.804-3.038-.878-3.093-4.018-2.974l-2.068.079-.388-1.705 3.225.841a1 1 0 1 0 .505-1.936l-2.762-.72L11.89 7.02a1 1 0 0 0-.384-.285.65.65 0 0 0-.272-.088c-.02-.003-.039.001-.058 0a4 4 0 0 0-1.158.199l-.129.035c-1.543.416-1.64.592-1.165 2.118l1.28 4.106c.922 2.956.98 2.996 4.07 2.802l1.527-.096c.72-.046.717-.047.99.621l1.675 4.122a1.099 1.099 0 0 0 2.08-.695"></path>
+                                            <path fill="#0D0C24" d="M16.07 18.373c-.542-1.342-.537-1.339-1.98-1.248-3.961.25-4.034.2-5.222-3.587L7.34 8.667c-.385-1.23-.386-1.23-1.674-1.23-1.035 0-1.153.138-.987 1.16L6.577 20.32C6.84 21.946 6.903 22 8.55 22h7.5c1.19 0 1.373-.27.928-1.374l-.91-2.253ZM7.67 4.511c.172.327.44.593.765.766.372.188.784.281 1.2.27h.028a2.5 2.5 0 0 0 1.2-.27c.326-.173.593-.44.766-.766a2.5 2.5 0 0 0 .27-1.2v-.027a2.5 2.5 0 0 0-.27-1.2 1.84 1.84 0 0 0-.766-.766 2.5 2.5 0 0 0-1.2-.27h-.028a2.5 2.5 0 0 0-1.2.27 1.84 1.84 0 0 0-.765.765 2.5 2.5 0 0 0-.27 1.2v.09c-.002.395.09.786.27 1.138"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Вместимость</div>
+                                        <div class="detail_content_description">5 мест</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_5" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M6 2.5a1.5 1.5 0 1 1 3 0v1.14h6V2.5a1.5 1.5 0 0 1 3 0v1.181a3 3 0 0 1 2.5 2.959V18a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3V6.64A3 3 0 0 1 6 3.681zm8.5 8.5c0-.729.591-1.32 1.32-1.32h.694a1.32 1.32 0 0 1 0 2.64h-.694A1.32 1.32 0 0 1 14.5 11m-2.847-1.32a1.32 1.32 0 0 0 0 2.64h.694a1.32 1.32 0 0 0 0-2.64zm-1.32 4.84c0-.73.591-1.32 1.32-1.32h.694a1.32 1.32 0 1 1 0 2.64h-.694a1.32 1.32 0 0 1-1.32-1.32M7.488 13.2a1.32 1.32 0 1 0 0 2.64h.693a1.32 1.32 0 0 0 0-2.64z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Год выпуска</div>
+                                        <div class="detail_content_description">2023</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                    <section class="FormInfo">
+                        <form method="post" enctype="application/x-www-form-urlencoded" id="form_1">
+                            <div class="content_gap_32px">
+                                <div class="content_gap_20px">
+                                    <div class="space-between">
+                                        <div>Город</div> <div>Москва</div>
+                                    </div>
+                                    <div class="content_gap_8px">
+                                        <div>Получение</div>
+                                        <div class="input_tag">
+                                            <select class="input_value flex-grow">
+                                                <option selected>Аэропорт Внуково</option>
+                                                <option>Аэропорт Шереметьево</option>
+                                                <option>Аэропорт Домодедово</option>
+                                                <option>Аэропорт Жуковский</option>
+                                                <option>Площадь Амилкара Кабрала</option>
+                                                <option>ул. Пресненский Вал д.6 корп.3</option>
+                                            </select>
+                                        </div>
+                                        <div class="date_input_container" id="date_time_from">
+                                            <label class="input_tag" for="date_from">
+                                                <div class="inline-flex input_value">с</div>
+                                                <input class="input_value" type="date" placeholder="08.11.2024" size="11"
+                                                name="date_from" id="date_from">
+                                            </label>
+                                            <label class="input_tag" for="time_from">
+                                                <input class="input_value" type="time" placeholder="09:00" size="4"
+                                                name="date_from" id="time_from">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="content_gap_8px">
+                                        <div>Возврат</div>
+                                        <div class="input_tag">
+                                            <select class="input_value flex-grow">
+                                                <option selected>Аэропорт Внуково</option>
+                                                <option>Аэропорт Шереметьево</option>
+                                                <option>Аэропорт Домодедово</option>
+                                                <option>Аэропорт Жуковский</option>
+                                                <option>Площадь Амилкара Кабрала</option>
+                                                <option>ул. Пресненский Вал д.6 корп.3</option>
+                                            </select>
+                                        </div>
+                                        <div class="date_input_container" id="date_time_to">
+                                            <label class="input_tag" for="date_to">
+                                                <div class="inline-flex input_value">по</div>
+                                                <input class="input_value" type="date" placeholder="28.11.2024" size="10"
+                                                name="date_to" id="date_to">
+                                            </label>
+                                            <label class="input_tag" for="time_to">
+                                                <input class="input_value" type="time" placeholder="14:00" size="4"
+                                                name="time_to" id="time_to">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <label class="flex_checkbox">
+                                        <div class="checkbox_wrapper">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
+                                                <path fill="#fff" d="M1.465 2.293.05 3.707 4.293 7.95 9.95 2.293 8.536.879 4.293 5.12z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="checkbox_text"></div>
+                                        <input type="checkbox" class="hidden_checkbox" checked>
+                                    </label>
+                                </div>
+                                <div class="content_gap_8px">
+                                    <div class="space-between">
+                                        <div>Аренда на 2 дня</div>
+                                        <div>6 980 ₽</div>
+                                    </div>
+                                    <div class="space-between smaller">
+                                        <div>Сутки аренды</div>
+                                        <div>3 490 ₽</div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            
 
-            </section>
+                        </form>
+                    </section>
+                </div>
+            </div>
         </div>
     </main>
 </body>
