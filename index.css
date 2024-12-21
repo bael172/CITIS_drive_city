@@ -110,13 +110,15 @@ pre{
 area{
     outline-color: blue;
 }
-#login{
+#log_in{
     width:140px;
     height:50px;
     background-color: green;
     color:white;
     font-weight: bold;
     font-size: large;
+    border-radius: 10px;
+    border: none;
 }
 #zatraty{
     text-align: left;

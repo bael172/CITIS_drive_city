@@ -13,7 +13,7 @@
             <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
             <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
             <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
-            <button id="login" onclick="">Войти</button>
+            <button id="log_in" onclick="">Войти</button>
             <a href=""><img src="support.png" width="50px"></a>
         </nav>
     </header>
@@ -84,8 +84,8 @@
             <h2 class="center">Преимущества</h2> <!--Заголовок 2-го уровня-->
             <div class="preimushestva"> <!--Здесь: табличное представление с помощью grid контейнера-->
                 <div></div>
-                <img src="./images/your_auto.png"> <!--Изображение-->
-                <img src="./images/delimobil.png"> 
+                <img src="./your_auto.png"> <!--Изображение-->
+                <img src="./delimobil.png"> 
                 <div id="zatraty"> Затраты на содеражние в год (в рублях)</div>
                 <div style="font-size:large">Личный автомобиль</div>
                 <div style="font-size:large">Автомобиль в аренду</div>
@@ -221,38 +221,52 @@
         <article title="cars" id="cars">
             <h2 class="center">Автомобили</h2>
             <div class="cars">
-                <div>
-                    <a target="_blank" href="https://auto.ru/cars/used/sale/audi/rs6/1125407055-8d09938f/?geo_id=213&utm_referrer=https%3A%2F%2Fauto.ru%2Fmoskva%2Fcars%2Faudi%2Frs6%2Fall%2F%3Futm_referrer%3Dhttps%253A%252F%252Fyandex.ru%252F">
-                        <img src="/AudiRS6.webp"></a>
-                        <!--<a> Тэг-ссылка на сайт. Содерижмое тэга <a> это элемент (текст, изображение) 
-                            по нажатию на который клиент отправляется по ссылке href. 
-                            Атрибут target - это выбор в каком окне должен открываться сайт-->
-                    <div>Audi RS6 2023<sup>Ⅳ</sup> <!--Добавляет надстрочный текст--></div> 
-                    <div>Универсал 5дв.</div>
-                    <div>Автоматическая КПП</div>
-                    <div>Полный привод</div>
-                    <div>от 1000 руб/час</div>
-                    <div>от 12000 руб/сутки</div>
-                    <sub>Гарантия техобслуживания</sub>
+                <div class="defined_car">
+                    <a target="_blank" href="./Audi RS6 2023.html">
+                        <img src="./Audi-RS6-Transparent-File.png" style="margin-block-end: 2pc">
+                        <div>Audi RS6 2023</div> 
+                        <div class="grey">
+                            <div>Универсал</div>
+                            <div>Автомат, Бензин, 630 л.с.</div>
+                            <div>Полный привод</div>
+                        </div>
+                        <div class="flexbox">
+                            <div class="green left">12000 ₽ сутки</div>
+                            <div class="right grey lighter">От 24000 ₽</div>
+                        </div>
+
+                    </a>
                 </div>
-                <div>
+                <div class="defined_car">
                     <a target="_blank" href="https://auto.ru/cars/used/sale/nissan/qashqai/1125825324-1132b590/?geo_id=213">
-                        <img src="/Nissan Qashqai 2007.webp"></a>
-                    <div>Nissan Qashqai 2007</div>
-                    <div>Внедорожник 5дв.</div>
-                    <div>Вариатор КПП</div>
-                    <div>от 300 руб/час</div>
-                    <div>от 3100руб/сутки</div>
-                    <sub>Гарантия техобслуживания</sub>
+                        <img src="./Cherry_Tiggo_8_Pro_E+.webp">
+                        <div>Cherry Tiggo 8 Pro e+</div>
+                        <div class="grey">
+                            <div>Паркетник</div>
+                            <div>Роботизированная (DHT), Бензин, 147 л.с.</div>
+                            <div>Передний привод</div>
+                        </div>
+                        <div class="flexbox">
+                            <div class="green left">3100 ₽ сутки</div>
+                            <div class="right grey lighter">От 6200 ₽</div>
+                        </div>
+                    </a>
                 </div>
-                <div>
+                <div class="defined_car">
                     <a target="_blank" href="https://auto.ru/cars/used/sale/vaz/2114/1126189963-971cb2ee/?geo_id=213">
-                        <img src="./Lada 2114.webp"></a>
-                    <div>Lada (ВАЗ) 2114</div>
-                    <div>Хэтчбек 5дв.</div>
-                    <div>Механическая КПП</div>
-                    <div>от 200 руб/час</div>
-                    <div>от 2100 руб/сутки</div>
+                        <img src="./Lada_Granta_2024.webp">
+                        <div>Lada Granta 2024</div>
+                        <div class="grey">
+                            <div>Седан</div>
+                            <div>Механика, Бензин, 90 л.с.</div>
+                            <div>Передний привод</div>
+                        </div>
+                        <div class="flexbox">
+                            <div class="green left">2100 ₽ сутки</div>
+                            <div class="right grey lighter">От 3200 ₽</div>
+                        </div>
+                    </a>
+
                 </div>
             </div>
         </article>
@@ -307,17 +321,11 @@
         </article>
         <section title="map" id="map">
             <h2>Использование тега &lt;map&gt;</h2>
-            <img src="/Skoda Rapid.jpg" usemap="#shapes" width="1000px">
+            <img src="./Skoda Rapid.jpg" usemap="#shapes" width="1000px">
             <map name="shapes"> <!--Используется для картографирования изображения. Объединяет в себе элементы-ссылки <area>-->
                 <area title="polygon" shape="polygon" coords="5,1,1,5,7,8,12,5,9,1"  alt ="Пятиугольник" target="_blank" href="https://auto.ru/cars/used/sale/skoda/rapid/1126185646-a44a117f/?geo_id=213">
                 <area title="circle" shape="circle" coords="500,500,100" alt="Круг" target ="_blank" href="https://auto.ru/cars/used/sale/hyundai/solaris/1125841414-6437355b/">
                 <area title="rect" shape="rect" coords="100,20,100,20" alt="Прямоугольник" target="_blank" href="https://auto.ru/cars/used/sale/kia/carnival/1123484817-d85994fc/">
-                <!--<area> служит как <a>, но перенаправляющим элементом является фигура (атрибут shape)-->
-                <!--shape имеет значения polygon - многоугольник, circle - круг, rectangle - прямоугольник-->
-                <!--coords определяет местоположение фигуры, 
-                    для многоугольника - путём указания координат вершин в формате X1,Y1,X(n),Y(n)...
-                    для прямоугольника - путём указания длин сторон в последовательности: left,top,right,bottom
-                    для круга - путём указания центра окружности по X и Y оси и радуиса: centerX, centerY, radius-->
             </map>
         </section>
         <section title="Использование position:relative" class="inline-blocks">
@@ -441,7 +449,7 @@
                 MR20 
                 ГРМ 
                 DOHC </div>
-            <br>
+            <br><br><br><br>
             <figure>
                 <img id="right_float" src="./Jetour.jpeg">
                 <figcaption class="large-text center">Jetour Dashing 2024</figcaption>

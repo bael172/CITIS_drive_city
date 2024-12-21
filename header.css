@@ -3,7 +3,7 @@ nav{
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: baseline;
-    background-color: beige;
+    background-color: rgb(225, 214, 226);
     box-sizing: content-box;
     min-width:100%;
 }
