@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<head> <!--Используется для системной (не выводимой на страницу) информации-->
+    <meta charset="UTF-8"> <!--Кодировка символов страницы -->
+    <link rel="stylesheet" href="./css/index.css"> <!--Ссылка index.html на index.css как на таблицу стилей-->
+    <title>Drive City - Прокат автомобилей</title> <!--Название во вкладке страницы-->
+    <link rel="icon" href="favicon.ico" sizes="any"> <!--Фавиконка (изображение 16х16 / 32х32) во вкладке страницы-->
+</head>
+<body> <!--Главное тело сайта. Отображается у пользователя-->
+    <header>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            main{
+                padding-left: 10vw;
+                padding-right: 10vw;
+                font-size: 16px;
+                line-height: 24px;
+                /*font-family: Graphik,Arial,Verdana,sans-serif*/
+            }
+            h1{
+                transform: translateX(1em);
+                font-size:xx-large;
+            }
+            h1,h2,h3{
+                font-family: Citymobil, sans-serif;
+            }
+            a{
+                text-decoration: none;
+            }
+            #logo{
+                color:black
+            }
+            .grey{
+                color:#717184;
+            }
+            .CarAndRent{
+                display:flex;
+                flex-flow:row nowrap;
+            }
+            .CarInfo{
+                display:flex;
+                flex-flow:column nowrap;
+                gap:48px 0;
+                width:60%;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+                font-size:18px;
+                line-height: 24px;
+            }
+            .car_img{
+                max-width:804px;
+            }
+            .car_details{
+                display:flex;
+                flex-direction: column;
+            }
+            .car_details_2{
+                display:flex;
+                flex-flow:row wrap;
+                gap:48px 0;
+                margin-right: 0;
+                margin-left: 0;
+            }
+            .CarDetailWrapper{
+                padding-left:0;
+                padding-right:0;
+                width:50%;
+                min-width:30%;
+            }
+            .CarDetail
+            {
+                display:flex;
+                gap:0 32px;
+            }
+            .detail_icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 64px;
+                width: 4rem;
+                min-height: 4rem;
+                height: 4rem;
+                border-radius:50px;
+                background-color:#f5f6fa
+            }
+            .detail_content{
+                display: flex;
+                flex-direction: column;
+                gap:8px 0;
+                width:100%;
+                max-width:24.5em;
+            }
+            .detail_content_description{
+                font-size: calc(1em+2px);
+                font-weight:600;
+                line-height: calc(1em+4px);
+            }
+            .RentForm{
+                min-width:20em;
+                width:max-content;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;              
+                height: max-content;
+                font-size:large;
+            }
+            .UserInfo{
+                display:flex;
+                flex-flow: row wrap;
+                gap:0 40px;
+                width: max-content;
+                max-width: 1080px;
+            }
+            .content_gap_32px{
+                display:flex;
+                flex-flow:column nowrap;
+                gap: 32px 0;
+            }
+            .content_gap_20px{
+                display:flex;
+                flex-flow:column nowrap;
+                gap: 20px 0;
+            }
+            .content_gap_8px{
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 8px 0;
+            }
+            .content_gap_4px{
+                display:flex;
+                flex-flow:column nowrap;
+                gap: 4px 0;
+            }
+            .space-between{
+                display:flex; 
+                flex-flow:row nowrap; 
+                justify-content: space-between; 
+            }
+            .split_2_parts_space_between{
+                display:flex;
+                flex-flow: row nowrap;
+                gap: 0 8px;
+                overflow:hidden;
+                justify-content: space-between;
+            }
+            .input_tag{
+                display:flex;
+                align-items: center;
+                padding: 14px 20px;
+                border: 1px solid transparent;
+                background-color: #f5f6fa;
+                border-radius: 12px;
+                cursor: text;
+                font-size:18px;
+            }
+            .input_tag:focus{
+                box-shadow: 0 0 5px rgb(49, 50, 49);
+            }
+            .input_value{
+                overflow: hidden;
+                margin-right: 0.5rem;
+                font-family: Graphik, sans-serif;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+                white-space: nowrap;
+                background-color: transparent;
+                border: none;
+            }
+            input.input_value:focus{
+                border:none;
+                background-color: transparent;
+            }
+            .flex-grow{
+                flex-grow: 1;
+            }
+            .arrow_down{
+                display:flex;
+                align-items: center;
+            }
+            .inline-flex{
+                display: inline-flex;
+            }
+            .flex_checkbox{
+                display:inline-flex;
+                gap:0 12px;
+                min-height:16px;
+                align-items:center;
+                white-space: nowrap;
+                vertical-align: top;
+            }
+            .checkbox_wrapper{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 24px;
+                width:24px;
+                min-height: 24px;
+                height: 24px;
+                border-radius: 8px;
+                background-color: #2fc25d;
+            }
+            .checkbox_text::after{
+                white-space: nowrap;
+                font-size: 16px;
+                line-height: 24px; 
+                content: "Возврат в другом месте"
+            }
+            .hidden_checkbox{
+                position:absolute;
+                opacity: 0;
+                height:0;
+                width:0;
+            }
+            .smaller{
+                font-size: 14px;
+                line-height: 20px;
+            }
+            .flex-row{
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .category{
+                max-width: 480px;
+                border-radius: 10px;
+                gap: 20px 40px;
+            }
+            .margin_0_auto{
+                margin: 0 auto;
+            }
+            .button_1{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3em;
+                width: 40%;
+                border-radius: 10px;
+                cursor: pointer;
+                margin-block: 2em;
+                font-weight: bold;
+            }
+            .submit{
+                background-color: green;
+                color: white;
+                border:none
+            }
+            .reset{
+                background-color: transparent;
+                border: black 1px solid;
+            }
+            .extra_option{
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+            }
+            .checkbox_label{
+                gap: 0 16px;
+                min-height: 16px;
+                cursor: pointer;
+                vertical-align: top;
+            }
+            .checkbox{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 24px;
+                min-height: 24px;
+                border-radius: 8px;
+                vertical-align: top;
+                background-color:#f5f6fa;
+                border-color: white;
+            }
+            .flex_100_width{
+                display:flex;
+                width:100%;
+            }
+            .button_2{
+                display:flex;
+                width:100%;
+                align-items:center;
+                justify-content: center;
+                color:#f5f6fa;
+                background-color: #2fc25d;
+                min-height: 3em;
+                border: none;
+                border-radius: 10px;
+                font-size: large;
+                font-weight:bold;
+                cursor: pointer;
+            }
+            .JC_flex-start{
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .JC-flex-end{
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+            .flex-grow-basis{
+                flex-grow:1;
+                flex-basis:0;
+                max-width: 100%;
+                min-height:1px;
+            }
+            .input_tag::placeholder{
+                opacity: 0.7;
+                color:grey;
+            }
+            .CarDescription{
+                margin-right: 3em;
+            }
+        </style>
+        <nav>
+            <span id="logo"><div id="drive">Drive</div> <div id="city">City</div></span>
+            <a href="https://auto.ru/" target="_blank">Автопарк</a>
+            <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
+            <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
+            <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
+            <div class="flex-end">
+                <button id="log_in" onclick="">Войти</button>
+                <img id="support-icon" src="./icons/support.png" width="50px">
+                <div class="icon-container">
+                    <img id="burger-bar" class="icon active" src="./icons/burger-bar.png">
+                    <img id="close" class="icon inactive" src="./icons/close.png">
+                </div>
+            </div>
+        </nav>
+        <div class="dropdown-menu">
+            <a href="https://auto.ru/"><div>Автопарк</div></a>
+            <a href="https://citydrive.ru/msk/carsharing/"><div>Каршеринг</div></a>
+            <a href="https://citydrive.ru/msk/longtermrental/"><div>Долгая аренда</div></a>
+            <a href="https://citydrive.ru/prokat/msk"><div>Прокат авто</div></a>
+        </div>
+    </header>
+    <main>
+        <h1>Прокат Audi RS6 2023 в Москве</h1>
+            <div title="Автомобиль и Форма бронирования" class="CarAndRent">
+                <section title="Автомобиль" class="CarInfo">
+                    <section title="Изображение автомобиля" class="car_img">
+                        <img src="./cars/Audi-RS6-Transparent-File.png" width="500px">
+                    </section>
+                    <section title="Краткие тех.характеристики" class="car_details">
+                        <div class="car_details_2">
+                            <div class="CarDetailWrapper">
+                                <div id="detail_0" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <img src="./images/fuel_pump.png" width="24" height="24" fill="none">
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Топливо</div>
+                                        <div class="detail_content_description">Бензин</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_1" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" d="M2.714 17.023a.73.73 0 0 1-.505-.2.67.67 0 0 1-.209-.482v-5.455c0-.243.136-.468.357-.59a.74.74 0 0 1 .715 0c.22.121.357.347.357.59v5.455c0 .18-.075.354-.21.482a.73.73 0 0 1-.505.2"></path>
+                                            <path fill="#0D0C24" d="M4.857 14.296H2.714a.72.72 0 0 1-.618-.341.66.66 0 0 1 0-.682.72.72 0 0 1 .618-.341h2.143c.255 0 .491.13.619.34a.66.66 0 0 1 0 .683.72.72 0 0 1-.619.34Z"></path>
+                                            <path fill="#0D0C24" d="M16.286 19.75H9.143a.73.73 0 0 1-.571-.273l-1.929-2.454H4.857a.73.73 0 0 1-.505-.2.67.67 0 0 1-.209-.482v-6.136c0-.181.075-.355.209-.483a.73.73 0 0 1 .505-.2h1.429V8.16c0-.18.075-.354.209-.482a.73.73 0 0 1 .505-.2h7.143a.73.73 0 0 1 .557.26l2.643 3.15h.371V9.522c0-.18.075-.354.21-.483a.73.73 0 0 1 .505-.199h1.428c.569 0 1.114.215 1.515.6A2 2 0 0 1 22 10.885v5.455c0 .543-.226 1.063-.628 1.446-.402.384-.947.6-1.515.6H18.43a.73.73 0 0 1-.506-.2.67.67 0 0 1-.209-.482V16.34H17v2.727a.67.67 0 0 1-.209.482.73.73 0 0 1-.505.2ZM9.5 18.386h6.072V15.66c0-.18.075-.354.209-.482a.73.73 0 0 1 .505-.2h2.143c.189 0 .37.072.505.2a.67.67 0 0 1 .209.482v1.364h.714c.19 0 .371-.072.506-.2a.67.67 0 0 0 .208-.482v-5.455a.67.67 0 0 0-.209-.482.73.73 0 0 0-.505-.2h-.714v1.364a.67.67 0 0 1-.21.483.73.73 0 0 1-.504.2H17a.73.73 0 0 1-.557-.26L13.8 8.841H7.714v1.364c0 .18-.075.354-.209.482a.73.73 0 0 1-.505.2H5.572v4.772H7c.225 0 .437.101.572.273zm3.929-12.272H7.714a.72.72 0 0 1-.618-.341.66.66 0 0 1 0-.682.72.72 0 0 1 .618-.34h5.715c.255 0 .49.13.618.34a.66.66 0 0 1 0 .682.72.72 0 0 1-.618.34Z"></path>
+                                            <path fill="#0D0C24" d="M10.572 8.841a.73.73 0 0 1-.506-.2.67.67 0 0 1-.209-.482V5.432c0-.244.137-.469.357-.59a.74.74 0 0 1 .715 0c.22.12.357.346.357.59v2.727a.67.67 0 0 1-.21.483.73.73 0 0 1-.505.199Z"></path><path fill="#0D0C24" d="M7 10.204H5.182l-.455 6.364H7l2.273 2.273h6.818v-2.727h2.272v1.818h1.819l.909-.91V10.66l-.91-.909h-1.818v1.818h-.909l-3.181-3.182H7v1.819Z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Двигатель</div>
+                                        <div class="detail_content_description">4.0 л, 630 л.с.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_2" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M20.32 8.303c.431 0 .78.342.78.763v2.27l.003 1.525-8.405.015v3.208h-1.56V12.88l-6.489.011v3.15H3.09v-3.147h-.008l-.003-1.524h.012V8.22h1.56v3.145l6.488-.012v-3.09h1.56v3.087l6.843-.012V9.066c0-.421.349-.763.78-.763Z" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M6.453 6.666c0 1.472-1.22 2.665-2.727 2.665C2.222 9.331 1 8.138 1 6.666 1 5.193 2.22 4 3.727 4c1.505 0 2.726 1.193 2.726 2.666"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M3.727 7.807c.644 0 1.167-.511 1.167-1.141S4.37 5.525 3.727 5.525c-.645 0-1.168.51-1.168 1.14s.523 1.142 1.167 1.142Zm0 1.524c1.505 0 2.726-1.193 2.726-2.665C6.453 5.193 5.233 4 3.726 4 2.222 4 1 5.193 1 6.666S2.22 9.33 3.727 9.33Zm7.998-1.388c.723 0 1.308-.572 1.308-1.279 0-.706-.585-1.279-1.308-1.279s-1.308.573-1.308 1.28c0 .706.585 1.278 1.308 1.278m0 1.385c1.505 0 2.725-1.192 2.725-2.664C14.45 5.193 13.23 4 11.725 4S9 5.193 9 6.664s1.22 2.664 2.725 2.664" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M23 6.666c0 1.472-1.22 2.665-2.726 2.665s-2.727-1.193-2.727-2.665c0-1.473 1.22-2.666 2.727-2.666C21.779 4 23 5.193 23 6.666"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M20.274 7.807c.644 0 1.167-.511 1.167-1.141s-.523-1.141-1.167-1.141c-.645 0-1.168.51-1.168 1.14s.523 1.142 1.168 1.142m0 1.524C21.779 9.331 23 8.138 23 6.666 23 5.193 21.78 4 20.274 4s-2.727 1.193-2.727 2.666 1.22 2.665 2.727 2.665" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M6.453 17.334c0 1.473-1.22 2.666-2.727 2.666C2.222 20 1 18.807 1 17.334s1.22-2.665 2.727-2.665c1.505 0 2.726 1.193 2.726 2.665"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M3.727 18.476c.644 0 1.167-.511 1.167-1.142s-.523-1.14-1.167-1.14c-.645 0-1.168.51-1.168 1.14s.523 1.142 1.167 1.142Zm0 1.524c1.505 0 2.726-1.193 2.726-2.666s-1.22-2.665-2.727-2.665C2.222 14.669 1 15.862 1 17.334 1 18.807 2.22 20 3.727 20" clip-rule="evenodd"></path>
+                                            <path fill="#0D0C24" d="M14.717 17.334c0 1.473-1.221 2.666-2.727 2.666s-2.726-1.193-2.726-2.666 1.22-2.665 2.726-2.665 2.727 1.193 2.727 2.665"></path>
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M11.99 18.476c.645 0 1.167-.511 1.167-1.142s-.522-1.14-1.167-1.14c-.644 0-1.167.51-1.167 1.14s.523 1.142 1.167 1.142m0 1.524c1.506 0 2.727-1.193 2.727-2.666s-1.221-2.665-2.727-2.665-2.726 1.193-2.726 2.665c0 1.473 1.22 2.666 2.726 2.666" clip-rule="evenodd"></path>
+                                            <circle cx="4" cy="7" r="2" fill="#0D0C24"></circle><circle cx="12" cy="7" r="2" fill="#0D0C24"></circle>
+                                            <circle cx="20" cy="7" r="2" fill="#0D0C24"></circle><circle cx="12" cy="17" r="2" fill="#0D0C24"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Коробка передач</div>
+                                        <div class="detail_content_description">Автомат</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_3" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <rect width="2.7" height="4.8" x="6.417" y="2.482" stroke="#0D0C24" stroke-width="1.5" rx="0.75" transform="rotate(15 6.417 2.482)"></rect>
+                                            <rect width="2.7" height="4.8" x="16.217" y="2.482" stroke="#0D0C24" stroke-width="1.5" rx="0.75" transform="rotate(15 16.217 2.482)"></rect>
+                                            <path stroke="#0D0C24" stroke-width="1.5" d="M8.5 5.683h6.3"></path>
+                                            <rect width="2.7" height="4.8" x="5.75" y="16.983" stroke="#0D0C24" stroke-width="1.5" rx="0.75"></rect>
+                                            <rect width="2.7" height="4.8" x="15.55" y="16.983" stroke="#0D0C24" stroke-width="1.5" rx="0.75"></rect>
+                                            <path stroke="#0D0C24" stroke-width="1.5" d="M8.5 18.983h6.3m-2.75-13.25v13.3"></path>
+                                            <path fill="#0D0C24" d="m6.594 2.789 1.932.518L7.49 7.17l-1.93-.517zm9.993.051 1.932.518-1.035 3.863-1.932-.517zM16 17h2v5h-2zM6 17h2v5H6z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Привод</div>
+                                        <div class="detail_content_description">Полный</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_4" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" d="m20.346 19.859-1.066-4.02c-.804-3.038-.878-3.093-4.018-2.974l-2.068.079-.388-1.705 3.225.841a1 1 0 1 0 .505-1.936l-2.762-.72L11.89 7.02a1 1 0 0 0-.384-.285.65.65 0 0 0-.272-.088c-.02-.003-.039.001-.058 0a4 4 0 0 0-1.158.199l-.129.035c-1.543.416-1.64.592-1.165 2.118l1.28 4.106c.922 2.956.98 2.996 4.07 2.802l1.527-.096c.72-.046.717-.047.99.621l1.675 4.122a1.099 1.099 0 0 0 2.08-.695"></path>
+                                            <path fill="#0D0C24" d="M16.07 18.373c-.542-1.342-.537-1.339-1.98-1.248-3.961.25-4.034.2-5.222-3.587L7.34 8.667c-.385-1.23-.386-1.23-1.674-1.23-1.035 0-1.153.138-.987 1.16L6.577 20.32C6.84 21.946 6.903 22 8.55 22h7.5c1.19 0 1.373-.27.928-1.374l-.91-2.253ZM7.67 4.511c.172.327.44.593.765.766.372.188.784.281 1.2.27h.028a2.5 2.5 0 0 0 1.2-.27c.326-.173.593-.44.766-.766a2.5 2.5 0 0 0 .27-1.2v-.027a2.5 2.5 0 0 0-.27-1.2 1.84 1.84 0 0 0-.766-.766 2.5 2.5 0 0 0-1.2-.27h-.028a2.5 2.5 0 0 0-1.2.27 1.84 1.84 0 0 0-.765.765 2.5 2.5 0 0 0-.27 1.2v.09c-.002.395.09.786.27 1.138"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Вместимость</div>
+                                        <div class="detail_content_description">5 мест</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CarDetailWrapper">
+                                <div id="detail_5" class="CarDetail">
+                                    <div class="detail_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                            <path fill="#0D0C24" fill-rule="evenodd" d="M6 2.5a1.5 1.5 0 1 1 3 0v1.14h6V2.5a1.5 1.5 0 0 1 3 0v1.181a3 3 0 0 1 2.5 2.959V18a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3V6.64A3 3 0 0 1 6 3.681zm8.5 8.5c0-.729.591-1.32 1.32-1.32h.694a1.32 1.32 0 0 1 0 2.64h-.694A1.32 1.32 0 0 1 14.5 11m-2.847-1.32a1.32 1.32 0 0 0 0 2.64h.694a1.32 1.32 0 0 0 0-2.64zm-1.32 4.84c0-.73.591-1.32 1.32-1.32h.694a1.32 1.32 0 1 1 0 2.64h-.694a1.32 1.32 0 0 1-1.32-1.32M7.488 13.2a1.32 1.32 0 1 0 0 2.64h.693a1.32 1.32 0 0 0 0-2.64z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail_content">
+                                        <div class="detail_content_name">Год выпуска</div>
+                                        <div class="detail_content_description">2023</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section title="Условия проката" class="Condition">
+                        <h2>Условия проката</h2>
+                        <div class="content_gap_20px">
+                            <div class="flex-row" style="margin-right:4em; margin-block-start: 2em;">
+                                <div class="flex-grow-basis">
+                                    <div>Возраст арендатора</div>
+                                </div>
+                                <div class="flex-grow-basis JC-flex-end">
+                                    <div>от 20 лет</div>
+                                </div>
+                            </div>
+                            <div class="flex-row" style="margin-right:4em">
+                                <div class="flex-grow-basis">
+                                    <div>Стаж вождения</div>
+                                </div>
+                                <div class="flex-grow-basis JC-flex-end">
+                                    <div>От 1 года</div>
+                                </div>
+                            </div>
+                            <div class="flex-row" style="margin-right:2em">
+                                <div class="flex-grow-basis">
+                                    <div>Набор документов</div>
+                                </div>
+                                <div class="flex-grow-basis JC-flex-end">
+                                    <div>Паспорт, Водительские права, Банковская карта</div>
+                                </div>
+                            </div>
+                            <div class="flex-row" style="margin-right:2em">
+                                <div class="flex-grow-basis">
+                                    <div>Залог</div>
+                                </div>
+                                <div class="flex-grow-basis JC-flex-end">
+                                    <div>Обязателен, мы возвращаем его в течении 15 дней после окончания аренды</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section title="Описание авто" class="CarDescription">
+                        <h2>Описание авто</h2>
+                        <p>Changan CS35 Plus — это современный компактный кроссовер, который сочетает в себе стильный дизайн и передовые технологии. Этот автомобиль, разработанный с участием специалистов из Италии, США, Германии, Японии и Китая, отличается высоким уровнем безопасности и качеством сборки</p>
+                        <p>Changan CS35 Plus предлагает множество уникальных опций, которые делают его идеальным выбором для различных поездок. В салоне вы найдете качественную кожаную отделку и обилие полезных функций, таких как камеры обзора, сенсорный мультимедиа, мультируль и электроподъемники.</p>
+                        <p>Этот авто идеально подходит как для коротких, так и для длительных поездок. Его просторный салон и вместительный багажник делают его отличным выбором для семейных поездок или командировок. Благодаря продуманной конструкции и надежным системам безопасности, вы можете быть уверены в комфорте и надежности на дороге.</p>
+                        <p>Changan CS35 Plus — это не просто модель, это символ качества и инноваций, который подарит вам незабываемые впечатления от каждой поездки.</p>
+                    </section>
+                </section>
+                <section title="Форма бронирования" class="RentForm">
+                    <form method="post" enctype="application/x-www-form-urlencoded" id="RentForm">
+                        <div class="content_gap_32px">
+                            <div class="content_gap_20px">
+                                <div class="space-between">
+                                    <div>Город</div> <div>Москва</div>
+                                </div>
+                                <div class="content_gap_8px">
+                                    <div>Получение</div>
+                                    <div class="input_tag">
+                                        <select class="input_value flex-grow" multiple style="overflow:auto" size="3">
+                                            <option selected value="VKO">Аэропорт Внуково</option>
+                                            <option value="SVO">Аэропорт Шереметьево</option>
+                                            <option value="DME">Аэропорт Домодедово</option>
+                                            <option required value="ZHK">Аэропорт Жуковский</option>
+                                            <option value="Admiral_Kabral's_square">Площадь Амилкара Кабрала</option>
+                                            <option required value="Presnenskiy Val 6, build 3">ул. Пресненский Вал д.6 корп.3</option>
+                                        </select>
+                                    </div>
+                                    <iframe src="https://2gis.ru/moscow/search/Аэропорт%20Внуково?m=37.296953%2C55.605281%2F14.15"
+                                    sandbox width="400" height="300" frameborder="0">
+                                    </iframe>
+                                    <div class="split_2_parts_space_between" id="date_time_from">
+                                            <label class="input_tag" for="date_from">
+                                                <div class="inline-flex input_value">с</div>
+                                                <input class="input_value" type="date" placeholder="08.11.2024" size="16" required
+                                                name="date_from" id="date_from">
+                                            </label>
+                                            <label class="input_tag" for="time_from">
+                                                <input class="input_value" type="time" placeholder="09:00" size="6" required
+                                                name="date_from" id="time_from">
+                                            </label>
+                                    </div>
+                                </div>
+                                <div class="content_gap_8px">
+                                    <div>Возврат</div>
+                                        <div class="input_tag">
+                                            <select class="input_value flex-grow">
+                                                <option selected>Аэропорт Внуково</option>
+                                                <option>Аэропорт Шереметьево</option>
+                                                <option>Аэропорт Домодедово</option>
+                                                <option>Аэропорт Жуковский</option>
+                                                <option>Площадь Амилкара Кабрала</option>
+                                                <option>ул. Пресненский Вал д.6 корп.3</option>
+                                            </select>
+                                        </div>
+                                        <iframe src="https://yandex.ru/maps/213/moscow/?ll=37.300634%2C55.608798&z=14.07"
+                                        sandbox width="400" height="300" frameborder="0">
+                                        </iframe>
+                                        <div class="split_2_parts_space_between" id="date_time_to">
+                                            <label class="input_tag" for="date_to">
+                                                <div class="inline-flex input_value">по</div>
+                                                <input class="input_value" type="date" placeholder="28.11.2024" size="15" required
+                                                name="date_to" id="date_to">
+                                            </label>
+                                            <label class="input_tag" for="time_to">
+                                                <input class="input_value" type="time" placeholder="14:00" size="4" required
+                                                name="time_to" id="time_to">
+                                            </label>
+                                        </div>
+                                </div>
+                                <div class="content_gap_8px">
+                                    <label class="flex_checkbox">
+                                        <div class="checkbox_wrapper">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
+                                                <path fill="#fff" d="M1.465 2.293.05 3.707 4.293 7.95 9.95 2.293 8.536.879 4.293 5.12z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="checkbox_text"></div>
+                                        <input type="checkbox" class="hidden_checkbox" checked>
+                                    </label>
+                                </div>
+                                <div class="content_gap_8px">
+                                    <div class="space-between grey" >
+                                        <div>Аренда на 2 дня</div>
+                                        <div>6 980 ₽</div>
+                                    </div>
+                                    <div class="space-between smaller grey">
+                                        <div>Сутки аренды</div>
+                                        <div>3 490 ₽</div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="content_gap_20px">
+                            <div class="content_gap_8px">
+                                <div class="space-between">
+                                    <div>Осаго</div>
+                                    <div>0 ₽</div>
+                                </div>  
+                            </div>
+                            <h4 style="line-height: 20px; margin-block: 0;">Дополнительные опции</h4>
+                            <div class="content_gap_20px" style="min-width:max-content;">
+                                <div class="extra_option">
+                                    <label class="inline-flex checkbox_label">
+                                        <input type="checkbox" class="checkbox">
+                                        <div class="content_gap_4px">
+                                            <div>Полное каско</div>
+                                            <div class="smaller">Покроет страховку целиком</div>
+                                        </div>
+                                    </label>
+                                    <div>1220 ₽</div>
+                                </div>
+                                <div class="extra_option">
+                                    <label class="inline-flex checkbox_label">
+                                        <input type="checkbox" class="checkbox">
+                                        <div class="content_gap_4px">
+                                            <div>Каско</div>
+                                            <div class="smaller">Компенсирует повреждение стёкол и колёс</div>
+                                            <div class="smaller">Остальное не входит</div>
+                                        </div>
+                                    </label>
+                                    <div>610 ₽</div>
+                                </div>
+                                <div class="extra_option">
+                                    <label class="inline-flex checkbox_label">
+                                        <input type="checkbox" class="checkbox">
+                                        <div class="content_gap_4px">
+                                            <div>Дополнительный водитель</div>
+                                            <div class="smaller">Как открытая страховка. Меняйтесь за рулём и</div>
+                                            <div class="smaller">путешествуйте без остановок</div>
+                                        </div>
+                                    </label>
+                                    <div>300 ₽</div>
+                                </div>
+                                <div class="extra_option">
+                                    <label class="inline-flex checkbox_label">
+                                        <input type="checkbox" class="checkbox">
+                                        <div class="content_gap_4px">
+                                            <div>Безлимитный километраж</div>
+                                            <div class="smaller">Для дальних путешествий на автомобиле</div>
+                                            <div class="smaller">Иначе останется 250 км в день</div>
+                                        </div>
+                                    </label>
+                                    <div>500 ₽</div>
+                                </div>
+                                <div class="extra_option">
+                                    <label class="inline-flex checkbox_label">
+                                        <input type="checkbox" class="checkbox">
+                                        <div class="content_gap_4px">
+                                            <div>Детское кресло</div>
+                                            <div class="smaller">Полноразмерное детское кресло для ребёнка</div>
+                                            <div class="smaller">уже в машине</div>
+                                        </div>
+                                    </label>
+                                    <div>200 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_gap_8px">
+                            <div class="space-between">
+                                <b>Итого</b><b>13 330 ₽</b>
+                            </div>
+                            <div class="space-between">
+                                <div>Плюс залог</div><div>15 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="content_gap_8px">
+                            <div class="flex_100_width">
+                                <button class="button_2">Забронировать
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <form class="UserInfo" method="post" autocomplete="on" enctype="application/x-www-form-urlencoded" action="">
+            <div class="content_gap_8px">
+                <h2>Укажите свои данные</h2>
+                <label> Фамилия 
+                    <input type="text" class="input_tag" name="surname" id="surname" required max="50">
+                </label>
+                <label>Имя
+                    <input type="text" class="input_tag" name="name" id="name" required max="50">
+                </label>
+                <label>Отчество
+                    <input type="text" class="input_tag" name="lastname" id="lastname" max="60">
+                </label>
+                <label>Телефон
+                    <input type="tel" class="input_tag" name="phone" id="phone" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" placeholder="+7 (xxx) xxx-xx-xx"required>
+                </label>
+                <label>Адрес эл.почты
+                    <input type="email" class="input_tag" name="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="example@mail.ru"required>
+                </label>
+            </div>
+            <div class="content_gap_8px">
+                <h2>Укажите данные водительского удостоверения</h2>
+                <div class="space-between" style="justify-content: flex-start; gap:0 20px;">
+                    <label>Серия
+                        <input type="number" class="input_tag" style="font-family: monospace; width: 20ch;" min="4" max="4" required size="20">
+                    </label>
+                    <label>Номер
+                        <input type="number" class="input_tag" style="font-family: monospace; width: 20ch;" min="6" max="6" required size="20">
+                    </label>
+                </div>
+                <label>Дата рождения
+                    <input type="date" class="input_tag" name="birthday" id="birthday" required>
+                </label>
+                <label>Место рождения (как в удостоверении)
+                    <textarea cols="50" rows="3" class="input_tag" name="birthday_place" id="birthday_place" required></textarea>
+                </label>
+                <div class="space-between" style="justify-content: flex-start; gap:0 20px;">
+                    <label>Дата выдачи
+                        <input type="date" class="input_tag" name="date_of_issue" id="date_of_issue" required>
+                    </label>
+                    <label>Годен до
+                        <input type="date" class="input_tag" name="expire_date" id="expire_date" required>
+                    </label>
+                </div>
+                <label>Выдан кем
+                    <input type="text" class="input_tag" name="issued_by_whom" id="issued_by_whom" required>
+                </label>
+                    <fieldset class="flex-row category" title="Категории вождения" id="driver_categories">
+                        <legend>Категории вождения</legend>
+                        <label><input type="checkbox" class="checkbox" title="A" name="category" value="A">A</label>
+                        <label><input type="checkbox" class="checkbox" title="B" name="category" value="B" required>B</label>
+                        <label><input type="checkbox" class="checkbox" title="C" name="category" value="C">C</label>
+                        <label><input type="checkbox" class="checkbox" title="D" name="category" value="D">D</label>
+                        <label><input type="checkbox" class="checkbox" title="BE" name="category" value="BE">BE</label>
+                        <label><input type="checkbox" class="checkbox" title="CE" name="category" value="CE">CE</label>
+                        <label><input type="checkbox" class="checkbox" title="DE" name="category" value="DE">DE</label>
+                        <label><input type="checkbox" class="checkbox" title="трамвай" name="category" value="tram">трамвай</label>
+                        <label><input type="checkbox" class="checkbox" title="троллейбус" name="category" value="trolleybus">троллейбус</label>
+                    </fieldset>
+                <label>Адрес регистрации
+                    <input type="search" class="input_tag" name="fact_address" id="fact_address" list="Russia_addresses" size="50" required>
+                    <datalist id="Russia_addresses">
+                        <option value="Москва, ул. Пресненский Вал д.19 стр.1"></option>
+                        <option value="Москва, ул. Вознесения д.30"></option>
+                        <option value="Москва, ул. Цицкаридзе д.12"></option>
+                        <option value="Москва, ул. Чвалинского д.25 к.4"></option>
+                    </datalist>
+                </label>
+                <label>Адрес фактического проживания
+                    <input type="search" class="input_tag" name="fact_address" id="fact_address" list="Russia_addresses" size="50" required>
+                </label>
+                <label>Скан-копия водительского удостоверения
+                    <input type="file" class="input_tag" accept="image/*,.pdf" multiple title="Выберите файл png,jpg,jpeg,pdf" required>
+                </label>
+                <fieldset title="Цели аренды" name="Rent_targets" id="Rent_targets">
+                    <legend>Для каких целей вы хотите арендовать автомобиль</legend>
+                    <div style="margin-block:1em" class="content_gap_8px">
+                        <label><input type="radio" checked > Чтобы разбить её о ближайший столб</label>
+                        <label><input type="radio"> Роблокс удалила мне мама (алаки каджи)</label>
+                        <label><input type="radio"> Для тиктоков типо темщик пон</label>
+                        <label><input type="radio"> А чо, он ничо такой, огурцом</label>
+                        <label><input type="radio">- "Mr. Saliery send his regards"</label>
+                        <label><input type="radio"> Need for СПИД : Ultimate Edition</label>
+                        <label><input type="radio"> Мне только спросить</label>
+                    </div>
+                </fieldset>
+                <label>Введите текущее время
+                    <input type="datetime-local" class="input_tag">
+                </label>
+                <div title="Отправить и Сбросить" class="space-between">
+                    <input type="submit" class="button_1 submit" action="">
+                    <input type="reset" class="button_1 reset" style="margin-right:3em;" action="">
+                </div>
+            </div>
+            <div class="content_gap_8px">
+                <form title="Логин и пароль" id="login_password">
+                    <h2>Придумайте логин и пароль для входа</h2>
+                    <label>Логин
+                        <input type="text" class="input_tag" name="login" id="login" minlength="3" maxlength="30" size="30">
+                    </label>
+                    <label>Пароль
+                        <input type="password" class="input_tag" name="password" id="password" minlength="6" maxlength="30" size="30">
+                    </label>
+                </form>
+
+            </div>
+    </form>
+    </main>
+</body>
+<script>
+        const  icon_active= document.querySelector('.icon-container .icon.active')
+        const icon_inactive = document.querySelector('.icon-container .icon.inactive')
+        const dropdown_menu = document.querySelector('.dropdown-menu')
+        const icons = []; icons.push(icon_active,icon_inactive)
+        icon_active.addEventListener('click',()=>{
+            icon_active.style.animationName = 'turn-off'
+            icon_inactive.style.animationName='turn-on'
+            icon_inactive.style.zIndex='1'
+            icon_active.style.zIndex='0'
+            dropdown_menu.style.animation='show-dropdown-menu 0.5s forwards normal'
+        })
+        icon_inactive.addEventListener('click',()=>{
+            icon_inactive.style.animationName='turn-off'
+            icon_active.style.animationName = 'turn-on'
+            icon_active.style.zIndex='1'
+            icon_inactive.style.zIndex='0'
+            dropdown_menu.style.animation='show-dropdown-menu 0.5s backwards reverse';
+        })
+
+</script>
