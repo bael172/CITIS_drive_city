@@ -1,4 +1,5 @@
 nav{
+    position:relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -6,10 +7,14 @@ nav{
     background-color: rgb(225, 214, 226);
     box-sizing: content-box;
     min-width:100%;
-    cursor:pointer
+    padding-top:1%;
+    padding-bottom:1%;
 }
 nav img{
     vertical-align: middle;
+}
+nav button~div{
+    cursor:pointer;
 }
 #logo{
     display:inline-flex;
@@ -17,6 +22,7 @@ nav img{
     font-size: xx-large;
     font-weight: bolder;
     align-items:center;
+    cursor:pointer;
 }
 #drive{
     color:rgb(89, 20, 154)

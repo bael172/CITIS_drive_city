@@ -8,14 +8,29 @@
 <body> <!--Главное тело сайта. Отображается у пользователя-->
     <header>
         <nav>
-            <span id="logo"><div id="drive">Drive</div> <div id="city">City</div></span>
+            <span id="logo" href="./index.html"><div id="drive">Drive</div> <div id="city">City</div></span>
             <a href="https://auto.ru/" target="_blank">Автопарк</a>
             <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
             <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
             <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
             <div class="flex-end">
                 <button id="log_in" onclick="">Войти</button>
-                <img id="support-icon" src="./icons/support.png" width="50px">
+                <div class="nav_icon">
+                    <img id="support-icon" src="./icons/support.png">
+                </div>
+                <div class = "nav_icon" id="notifications" >
+                    <div id="count">4</div>
+                    <img id="bell" src="./icons/bell.png">
+                    <div id="body">
+                        <ol>
+                            <li>Ваш промокод на первую аренду</li>
+                            <div>NGINX2025</div>
+                            <li>Вы успешно зашли в систему</li>
+                            <li>Вы прошли проверку. Водительское удостоверение проверено</li>
+                            <li>Данные водительского удостоверения отправлены на проверку</li>
+                        </ol>
+                    </div>
+                </div>
                 <div class="icon-container">
                     <img id="burger-bar" class="icon active" src="./icons/burger-bar.png">
                     <img id="close" class="icon inactive" src="./icons/close.png">
@@ -136,26 +151,26 @@
                 </blockquote>
         </section>
         <article title="choose" id="choose">
-            <h2 class="center" id="choose">Выбрать автомобиль</h2>
+            <h2 class="center">Выбрать автомобиль</h2>
             <section id="due_price">
                 <h2>По ценовой категории</h2>
                 <div class="choose_cars">
-                    <h3>Эконом</h3> <!--Заголовок 3-го уровня-->
-                    <h3>Бизнес</h3>
-                    <h3>Премиум</h3>
+                    <button class="button_blue">Эконом</button>
+                    <button class="button_purple">Бизнес</button>
+                    <button class="button_light_blue">Премиум</button>
                 </div>
             </section>
             <section id="due_kuzov">
                 <h2>По типу кузова</h2>
                 <div class="choose_cars">
-                    <h3>Седан</h3>
-                    <h3>Внедорожники</h3>
-                    <h3>Кроссовер</h3>
-                    <h3>Хэтчбек</h3>
-                    <h3>Минивен</h3>
-                    <h3>Купе</h3>
-                    <h3>Пикап</h3>
-                    <h3>Универсал</h3>
+                    <button class="button_aquamarine">Седан</button>
+                    <button>Внедорожники</button>
+                    <button>Кроссовер</button>
+                    <button>Хэтчбек</button>
+                    <button>Минивен</button>
+                    <button>Купе</button>
+                    <button>Пикап</button>
+                    <button>Универсал</button>
                 </div>
             </section>
             <section id="due_mark">
@@ -241,8 +256,8 @@
                             <div>Полный привод</div>
                         </div>
                         <div class="flexbox">
-                            <div class="green left">12000 ₽ сутки</div>
-                            <div class="right grey lighter">От 24000 ₽</div>
+                            <div class="green left">9000 ₽ сутки</div>
+                            <div class="right grey lighter">От 18000 ₽</div>
                         </div>
 
                     </a>
@@ -276,8 +291,33 @@
                             <div class="right grey lighter">От 3200 ₽</div>
                         </div>
                     </a>
-
                 </div>
+            </div>
+            <h2> Линейка <img src="./images/geely.webp" width="50px"></h2>
+            <div class="cars">
+                <div class="defined_car show_desc">
+                    <a target="_blank" href="https://auto.ru/cars/used/sale/geely/tugella/1126450512-a393e542/">
+                        <div class="img_container">
+                            <div id="Geely_Tugella_img"></div>
+                            <div class="text_overlay">
+                                <div class="larger">Geely_Tugella 2021</div>
+                                <div>
+                                    <div>Внедорожник</div>
+                                    <div>2.0 л / 238 л.с./Бензин</div>
+                                    <div>Автомат КПП</div>
+                                    <div>Полный привод</div>
+                                </div>
+                                <div class="prices">
+                                    <div class="green left">3200 ₽ сутки</div>
+                                    <div class="right grey lighter">От 6400 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+            </div>
+
             </div>
         </article>
         <article title="requirements" id="requirements">
@@ -596,7 +636,7 @@
     </footer>
 </body>
 <script>
-        const  icon_active= document.querySelector('.icon-container .icon.active')
+        const icon_active= document.querySelector('.icon-container .icon.active')
         const icon_inactive = document.querySelector('.icon-container .icon.inactive')
         const dropdown_menu = document.querySelector('.dropdown-menu')
         const icons = []; icons.push(icon_active,icon_inactive)
@@ -614,7 +654,15 @@
             icon_inactive.style.zIndex='0'
             dropdown_menu.style.animation='show-dropdown-menu 0.5s backwards reverse';
         })
-
+        const notifications = document.querySelector("#notifications")
+        const notifications_body = document.querySelector("#notifications #body")
+        let clickCount=0;
+        notifications.addEventListener("click",(event)=>{
+            clickCount++;
+            if(clickCount%2==1)notifications_body.style.display="block"
+            if(clickCount%2==0)notifications_body.style.display="none"
+        })
+        
     /*
     const ADs= document.getElementsByClassName('absolute')
     for(let key in ADs){
