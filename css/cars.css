@@ -3,7 +3,7 @@
         display:flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        gap:20px;
+        gap:10px;
         /*font-family: Graphik, Arial, Verdana, sans-serif;*/
     }
     .inline #left_float{
@@ -26,7 +26,7 @@
         flex-flow: column nowrap;
         align-items: center;
         width:100%;
-        gap:20px 0;
+        gap:10px;
     }
     .cars>div>a>img{
         display:flex;
@@ -63,6 +63,9 @@
     background-color:rgb(246, 243, 252);
     border-radius:20px;
 }
+.defined_car.geely{
+    padding-inline:5pt;
+}
 .defined_car .larger{
     font-size:large;
     font-weight: 800;
@@ -72,16 +75,24 @@
     position:relative;
     display:inline-block;
 }
-#Geely_Tugella_img{
+.img{
     width:400px;
     max-width:700px;
     height:300px;
     max-height:400px;
-    background-image: url("../cars/Geely\ Tugella\ 2021.webp");
     background-repeat: no-repeat;
     background-size:contain;
     background-position: center;
     background-color: black;
+}
+#Geely_Tugella{
+    background-image: url("../cars/Geely\ Tugella\ 2021.webp");
+}
+#Geely_Emgrand{
+    background-image: url("../cars/Geely\ Emgrand\ 2024.webp")
+}
+#Geely_Atlas_Pro{
+    background-image: url("../cars/Geely\ Atlas\ Pro\ 2022.webp")
 }
 .text_overlay{
     opacity:0;
@@ -89,7 +100,7 @@
     z-index:2;
     bottom:0;
     left:0;
-    width:100%;
+    width:95%;
     color:white;
     background-color: black;
     padding:10px;

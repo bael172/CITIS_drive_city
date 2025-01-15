@@ -48,3 +48,73 @@ nav a:hover{
 nav a:visited{
     text-shadow: darkcyan 1px 1px 10px;
 }
+.dropdown-menu{
+    display:flex;
+    visibility: hidden;
+}
+.dropdown-menu>a{
+    text-decoration:none;
+}
+.nav_icon{
+    position:relative;
+    width:50px;
+    height:50px;
+    background-color:#fafafa;
+    border-radius: 50%;
+}
+#support-icon{
+    position:absolute;
+    top:10%;
+    left:10%;
+    display:inline;
+    width:40px;
+}
+#notifications #bell{
+    position:absolute;
+    top:20%;
+    left:20%;
+    width:30px;
+    z-index:0;
+}
+#notifications #count{
+    position: absolute;
+    top:0;
+    left:60%;
+    width:20px;
+    border-radius: 50%;
+    text-align:center;
+    color:white;
+    background-color: red;
+    z-index:1;
+}
+#notifications #body{
+    display:none;
+    position:absolute;
+    z-index:1;
+    right: 1%;
+    top:150%;
+    background-color: #f7f7f7;
+    border-radius:10px 10px;
+    width:20em;
+    min-height:50px;
+    max-height:max-content;
+    font-size: smaller;
+}
+#notifications #body ol{
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    margin-right:20px;
+} 
+#notifications #body ol>li{
+    margin-block-start: 10px;
+}
+#notifications #body ol>li::marker{
+    color:blue;
+    font-size:1.2em;
+}
+#notifications #body ol>div{
+    margin-block-start: 10px;
+    font-size:larger;
+    font-weight: 900;
+    margin-left: 5%;
+}

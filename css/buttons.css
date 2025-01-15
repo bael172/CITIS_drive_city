@@ -1,0 +1,104 @@
+.choose_cars .button_blue{
+    background-color: rgb(10, 19, 148);
+    color:white;
+    box-shadow: 
+    inset 1px 1px 2px rgb(8, 16, 121),
+    inset 2px 2px 2px rgb(255, 255, 255), /*left-top shine*/
+
+    inset 0px 20px 20px rgb(14, 27, 202),
+    inset 0px -10px 20px rgb(4, 7, 54) /*gradient*/
+    ;
+}
+.choose_cars .button_blue:hover{
+    background-color: rgb(22, 35, 206);
+    color:white;
+    box-shadow:
+    inset 1px 1px 2px rgb(22, 35, 206),
+    inset 2px 2px 2px rgb(255, 255, 255), /*left-top shine*/
+
+    inset 0px 10px 20px rgb(63, 76, 250),
+    inset 0px -10px 20px rgb(20, 31, 180) /*gradient*/
+    ;
+    transform: skew(15deg, -5deg);
+    transition: 
+    transform 2s ease,
+    box-shadow 4s ease-out;
+}
+.choose_cars .button_purple{
+    background-color: rgb(132, 0, 209);
+    color:white;
+    box-shadow:  
+    inset 1px 1px 2px rgb(112, 0, 177),
+    inset 2px 2px 2px rgb(255, 255, 255), /* left-top shine*/
+
+    inset -5px 10px 20px rgb(135, 0, 212), 
+    inset 5px -10px 20px rgb(68, 0, 107) /*gradient*/
+    ;
+}
+.choose_cars .button_purple:hover{
+    background-color: rgb(158, 3, 248);
+    color:white;
+    box-shadow:
+    inset 1px 1px 2px rgb(158, 3, 248),
+    inset 2px 2px 2px white, /*left-top shine*/
+
+    inset 0px 10px 20px rgb(179, 46, 255),
+    inset 0px -10px 20px rgb(113, 3, 177) /*gradient*/
+    ;
+    transform:rotate(15deg);
+    transition: 
+    box-shadow 4s ease-out,
+    transform 2s ease-in-out;
+}
+.choose_cars .button_light_blue{
+    background-color: rgb(29, 136, 207);
+    color:white;
+    box-shadow:
+    inset 1px 1px 2px rgb(29, 136, 207),
+    inset 1px 1px 2px rgb(255, 255, 255), /*left-top shine*/
+
+    inset 0px 10px 20px rgb(23, 103, 156),
+    inset 0px -10px 20px rgb(35, 158, 240) /*gradient*/
+    ;
+}
+.choose_cars .button_light_blue:hover{
+    background-color:rgb(40, 161, 241);
+    color:white;
+    box-shadow:
+    inset 1px 1px 2px rgb(40, 161, 241),
+    inset 1px 1px 2px rgb(255, 255, 255), /*left-top shine*/
+
+    inset 0px 10px 20px rgb(34, 141, 212),
+    inset 0px -10px 20px rgb(73, 179, 250) /*gradient*/
+    ;
+    transform: translateX(40px);
+    transition: 
+    box-shadow 4s ease-out,
+    transform 2s ease-in-out;
+}
+.choose_cars .button_aquamarine{
+    background-color:aquamarine ;
+    color:white;
+    box-shadow: 
+    inset 1px 1px 2px aquamarine,
+    inset 1px 1px 2px white, /*left-top shine*/
+
+    inset 20px 0px 50px rgb(163, 255, 224),
+    inset -20px -20px 50px rgb(72, 173, 140) /*gradient*/
+    ;
+}
+.choose_cars .button_aquamarine:hover{
+    background-color:aquamarine;
+    color:white;
+    box-shadow: 
+    inset 1px 1px 2px aquamarine,
+    inset 1px 1px 2px white, /*left-top shine*/
+
+    inset 20px 0px 50px rgb(41, 255, 184),
+    inset -20px 0px 50px rgb(170, 253, 225) /*gradient*/
+    ;
+    transform: scale(1.2);
+    transition: 
+    box-shadow 4s ease-out,
+    transform 1s ease;
+}
