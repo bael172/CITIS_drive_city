@@ -5,5 +5,102 @@
 
 }
 @media screen and (max-width:1000px){ /*mobile*/
-    
+
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a1a1a;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.card-container {
+    display: flex;
+    gap: 30px; /* Пространство между карточками */
+}
+.card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content{
+    z-index: 2; /* Отображать текст над градиентом */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 150%;
+  height: 200%;
+  background: linear-gradient(45deg, #00ff88, #00c2ff, #b26cff);
+  border-radius: 45%;
+  z-index: 1;
+  animation: rotate 6s linear infinite;
+}
+
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.card:hover::before{
+  animation-play-state: paused; /* Пауза анимации при наведении */
+}
+
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+         transform: rotate(360deg);
+    }
+}
+
+/* Плавные анимации квадратов */
+.card:hover::after {
+    animation: moveSquares 4s linear infinite;
+}
+@keyframes moveSquares {
+    0% {
+        transform: translateY(-5px) rotate(10deg);
+    }
+   25% {
+      transform: translateY(5px) rotate(15deg) scale(1.1);
+    }
+    50%{
+          transform: translateY(0px) rotate(-15deg);
+    }
+     75%{
+        transform: translateY(-5px) rotate(-10deg) scale(1.1);
+    }
+    100% {
+       transform: translateY(-5px) rotate(10deg);
+    }
 }
