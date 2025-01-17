@@ -1,0 +1,9 @@
+@media screen and (min-width:800px){ /*desktop*/
+
+}
+@media screen and (min-width:800px) and (max-width:1000px){ /*tablet*/
+
+}
+@media screen and (max-width:1000px){ /*mobile*/
+    
+}

@@ -1,10 +1,15 @@
-@media screen and (min-width:800px){ /*desktop*/
+:root{
+    --car-card-bg: rgb(218, 225, 230);
+}
+@media screen and (min-width:1000px){ /*desktop*/
     .cars{
+        position: relative;
         display:flex;
         flex-flow: row nowrap;
-        justify-content: space-between;
-        gap:10px;
-        /*font-family: Graphik, Arial, Verdana, sans-serif;*/
+        justify-content: center;
+        gap:10px 20px;
+        overflow-x:visible;
+        z-index:2;
     }
     .inline #left_float{
         width:50%;
@@ -20,18 +25,26 @@
 .inline {
     display:inline;
 }
+@media screen and (min-width:800px) and (max-width:1000px){ /*появление main padding*/
+    .cars{
+        display: block;
+        margin-inline:5rem;
+    }
+    .cars>*{
+        margin-block:1rem;
+    }
+    .defined_car.no_bg{
+        background-color: none;
+    }
+}
 @media screen and (max-width:800px){ /*mobile*/
     .cars{
         display:flex;
         flex-flow: column nowrap;
         align-items: center;
-        width:100%;
-        gap:10px;
-    }
-    .cars>div>a>img{
-        display:flex;
-        width:100%;
-        justify-content: center;
+        box-sizing: border-box;
+        width:80vw;
+        gap:20px 20px;
     }
     #map img{
         display:flex;
@@ -50,21 +63,24 @@
     padding:0px;
 }
 
-.cars>div>a>img{
-    max-width: 250px;
-    max-height: 200px;
+.defined_car .center_1 img{
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 20px;
 }
 .cars a>*{
     margin-block-end: 2pt;
 }
 .defined_car{
-    padding:20pt;
-    background-color:rgb(246, 243, 252);
+    padding-inline:5rem;
+    padding-block:2rem;
+    background-color:var(--car-card-bg);
     border-radius:20px;
 }
-.defined_car.geely{
-    padding-inline:5pt;
+.no_bg .defined_car{
+    padding:0;
+    margin:0;
+    background-color: none;
 }
 .defined_car .larger{
     font-size:large;
@@ -75,11 +91,13 @@
     position:relative;
     display:inline-block;
 }
-.img{
+.img_container img,.img{
     width:400px;
     max-width:700px;
     height:300px;
     max-height:400px;
+}
+.img{
     background-repeat: no-repeat;
     background-size:contain;
     background-position: center;
@@ -110,11 +128,20 @@
 .img_container:hover .text_overlay{
     opacity:1;
 }
-
 .prices{
     display:flex;
     flex-flow:row nowrap;
     justify-content:space-between;
+}
+#some_cars{
+    margin-left: 5%;
+}
+#some_cars h2{
+    margin-block:5%;
+}
+.center_1{
+    width:100%;
+    margin:0 auto;
 }
 .green{
     color:green
