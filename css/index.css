@@ -2,7 +2,7 @@
 @import url("footer.css");
 @import url("cars.css");
 @import url("buttons.css");
-@import url("gradient_cards.css");
+@import url("glassmorphism.css");
 
 :root{
     --video-width: 60vw;

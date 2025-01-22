@@ -1,0 +1,180 @@
+@media screen and (max-width:800px){ /*mobile*/
+    .card_container{
+        width: 90vw !important;
+        padding-inline:5vmin;
+        box-sizing: border-box /*включаем внутр.отступы как составляющее ширину*/
+    }
+}
+@media screen and (min-width:800px) and (max-width:1000px){ /*<1000px Исчезания main padding*/
+    .glass_cards{
+        display:flex;
+        flex-flow: row nowrap;
+        gap:10px 20px;
+        width:fit-content;
+        padding-inline: 2rem;
+    }
+}
+@media screen and (min-width:1000px) and (max-width:1300px){
+    .glass_cards{
+        display:flex;
+        flex-flow: row nowrap;
+        gap:10px 20px;
+        width:fit-content;
+        padding-inline: 2vw;
+        margin-left:-10vw;
+    }
+}
+@media screen and (min-width:1300px){
+    .glass_cards{
+        display:flex;
+        flex-flow: row nowrap;
+        gap:10px 20px;
+        width:fit-content;
+        padding-inline: 2vw;
+        margin-left:-10vw;
+    }
+}
+.my-list{
+    list-style: none;
+    counter-reset: list-counter;
+}
+.list-item::before{
+    content:counter(list-counter) ". ";
+    counter-increment:list-counter;
+    display: inline;
+}
+.a_button{
+    display: inline-block;
+    margin-inline: calc(100vw/2 - 20em);
+    height:3em; 
+    padding-inline:10em; 
+    padding-block:0.5em; 
+    background:green; 
+    border:white 1em; 
+    margin-block:10%; 
+    color:white; 
+    text-align: center; 
+    vertical-align:text-bottom;
+    text-decoration: none;
+}
+.a_button:hover{
+    background-color: rgb(34, 188, 34);
+    box-shadow: 1px 1px 10px 10px greenyellow;
+}
+.glass_cards{
+    background-image:linear-gradient(rgb(54, 57, 124),rgb(11, 11, 37));
+}
+.card_container{
+    position:relative;
+    height: 30em;
+    width:calc(90vw/3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    position:relative;
+    display: flex;
+    flex-flow:column nowrap;
+    gap: 0 20px;
+    box-sizing: border-box;
+    height:fit-content;
+    max-height: 400px;
+    overflow-y:auto;
+    padding-inline:3rem;
+    padding-block:2rem;
+    border-radius: 1rem;
+    background-color: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    transition: height 0.5s ease;
+    z-index:2;
+}
+.card_container::before{
+    content:'';
+    position:absolute;
+    display:inline-block;
+    top:10%;
+    left:20%;
+    width:100px;
+    height:150px;
+    border-radius: 1rem;
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    z-index:1;
+    animation: float_1 2s normal ease-out forwards;
+}
+.card_container:hover::before{
+    animation: float_2 2s normal ease-out forwards;
+}
+@keyframes float_1{
+    100%{
+        transform:translate(-20px,0px)
+    }
+}
+@keyframes float_2{
+    100%{
+        transform:translate(20px,0px)
+    }
+}
+.button_tip{
+    position: relative;
+    display: inline-block;
+    color:#2a27fb;
+    cursor:pointer;
+    z-index:1;
+}
+.button_tip::before{
+    content:'';
+    color:black;
+    display:block;
+    max-height:0;
+    overflow: hidden;
+}
+.button_tip.active::before{
+    padding-bottom:1rem;
+    content:attr(data-description);
+    max-height:120%;
+    transition: max-height 0.5s ease, 
+    content 0.5s ease;
+}
+.card h3{
+    margin-block:0;
+}
+.gradient_element{
+    position: absolute;
+    margin:0 auto;
+    z-index: 0;
+}
+#gradient_element_1{
+    height:70%;
+    width:50%;
+    transform:skew(10deg) translateX(0%);
+    background-image: linear-gradient(45deg,orange 8em, rgb(255, 38, 14) 100%);
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 10px orange)
+    drop-shadow(5px -5px 5px rgb(219, 4, 136))
+    drop-shadow(-5px 5px 5px rgb(255, 123, 0))
+    drop-shadow(-5px -5px 10px purple)
+}
+#gradient_element_2{
+    height:70%;
+    width:50%;
+    transform:skew(-20deg);
+    background-image: linear-gradient(-30deg, blue, rgb(141, 5, 245), rgb(234, 3, 196));
+    border-radius: 15px;
+    filter: drop-shadow(5px 5px 5px blue)
+    drop-shadow(-5px 5px 5px rgb(102, 0, 255))
+    drop-shadow(-5px -5px 5px rgb(187, 0, 255))
+    drop-shadow(5px -5px 5px rgb(136, 0, 255))
+}
+#gradient_element_3{
+    height: 70%;
+    width:50%;
+    transform: skew(15deg);
+    background-image: linear-gradient(-20deg, green, greenyellow, yellow);
+    border-radius: 15px;
+    filter: drop-shadow(5px 5px 5px rgb(57, 191, 57))
+    drop-shadow(5px -5px 5px rgb(119, 255, 15))
+    drop-shadow(-5px 5px 5px rgb(7, 173, 79))
+    drop-shadow(-5px -5px 5px rgb(189, 230, 7))
+}

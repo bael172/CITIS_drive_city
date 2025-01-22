@@ -1,15 +1,46 @@
 :root{
     --car-card-bg: rgb(218, 225, 230);
 }
-@media screen and (min-width:1000px){ /*desktop*/
+@media screen and (min-width:1200px){
+    #some_cars{
+        max-width: 120%;
+        margin-right: -50vw;
+    }
     .cars{
-        position: relative;
+        position:static;
         display:flex;
         flex-flow: row nowrap;
         justify-content: center;
         gap:10px 20px;
         overflow-x:visible;
-        z-index:2;
+    }
+}
+@media screen and (min-width:1000px) and (max-width:1200px){ /*для того чтобы при 1200+ это свойство не срабатывало*/
+    #some_cars{
+        max-width:100%;
+    }
+    .cars{
+        position: relative;
+        left:15vw;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        gap:10px 20px;
+        overflow-x:visible;
+    }
+}
+@media screen and (min-width:1000px){ /*desktop*/
+    .defined_car{
+        padding-inline:1rem;
+    }
+    .defined_car a{
+        max-width:calc(100vw/4);
+    }
+    .cars.no_bg{
+        margin-right: -5vw;
+    }
+    .img_container > *{
+        max-width:calc(100vw/3);
     }
     .inline #left_float{
         width:50%;
@@ -26,18 +57,30 @@
     display:inline;
 }
 @media screen and (min-width:800px) and (max-width:1000px){ /*появление main padding*/
+    #some_cars{
+        width:100%;
+    }
     .cars{
-        display: block;
-        margin-inline:5rem;
+        display: flex;
+        gap: 20px;
     }
     .cars>*{
         margin-block:1rem;
     }
-    .defined_car.no_bg{
-        background-color: none;
+    .defined_car a{
+        max-width:calc(100vw/4);
+    }
+    .cars.no_bg{
+        margin-right: -5vw;
+    }
+    .defined_car{
+        padding-inline:1rem;
     }
 }
 @media screen and (max-width:800px){ /*mobile*/
+    #some_cars{
+        width:100%;
+    }
     .cars{
         display:flex;
         flex-flow: column nowrap;
@@ -45,6 +88,10 @@
         box-sizing: border-box;
         width:80vw;
         gap:20px 20px;
+    }
+    .defined_car{
+        margin: 0 auto;
+        padding-inline:5rem;
     }
     #map img{
         display:flex;
@@ -72,7 +119,6 @@
     margin-block-end: 2pt;
 }
 .defined_car{
-    padding-inline:5rem;
     padding-block:2rem;
     background-color:var(--car-card-bg);
     border-radius:20px;
@@ -80,7 +126,7 @@
 .no_bg .defined_car{
     padding:0;
     margin:0;
-    background-color: none;
+    background:none;
 }
 .defined_car .larger{
     font-size:large;
@@ -132,9 +178,6 @@
     display:flex;
     flex-flow:row nowrap;
     justify-content:space-between;
-}
-#some_cars{
-    margin-left: 5%;
 }
 #some_cars h2{
     margin-block:5%;
