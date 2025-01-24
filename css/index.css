@@ -13,7 +13,7 @@ body{
     background-color: #f2f4f7;
 }
 @media (max-width:800px){ /*mobile*/
-    nav a{
+    nav>a{
         display:none;
     }
     main{
@@ -321,17 +321,6 @@ pre{
 }
 area{
     outline-color: blue;
-}
-#log_in{
-    width:120px;
-    height:40px;
-    background-color: green;
-    color:white;
-    font-weight:400;
-    font-size: large;
-    border-radius: 10px;
-    border: none;
-    cursor:pointer;
 }
 #zatraty{
     text-align: left;

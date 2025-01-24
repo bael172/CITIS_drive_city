@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="./css/login.css" rel="stylesheet">
+        <title>Drive City - Вход</title>
+        <link rel="icon" href="favicon.ico" sizes="any">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <span id="logo" href="./index.html"><div id="drive">Drive</div> <div id="city">City</div></span>
+                <a href="https://auto.ru/" target="_blank">Автопарк</a>
+                <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
+                <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
+                <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
+                <div class="flex-end">
+                    <a class="log_in" href="./login.html"><div>Главная</div></a>
+                    <div class="nav_icon">
+                        <img id="support-icon" src="./icons/support.png">
+                    </div>
+                    <div class = "nav_icon" id="notifications" >
+                        <div id="count">4</div>
+                        <img id="bell" src="./icons/bell.png">
+                        <div id="body">
+                            <ol>
+                                <li>Ваш промокод на первую аренду</li>
+                                <div>NGINX2025</div>
+                                <li>Вы успешно зашли в систему</li>
+                                <li>Вы прошли проверку. Водительское удостоверение проверено</li>
+                                <li>Данные водительского удостоверения отправлены на проверку</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img id="burger-bar" class="icon active" src="./icons/burger-bar.png">
+                        <img id="close" class="icon inactive" src="./icons/close.png">
+                    </div>
+                </div>
+            </nav>
+            <div class="dropdown-menu">
+                <a href="https://auto.ru/"><div>Автопарк</div></a>
+                <a href="https://citydrive.ru/msk/carsharing/"><div>Каршеринг</div></a>
+                <a href="https://citydrive.ru/msk/longtermrental/"><div>Долгая аренда</div></a>
+                <a href="https://citydrive.ru/prokat/msk"><div>Прокат авто</div></a>
+            </div>
+        </header>
+        <main>
+            <div class="login_container">
+                <div class="login_title">Логин</div>
+                <div class="label">
+                    <label for="pochta"> Адрес эл.почты </label>
+                    <input class="login_input" type="email" id="pochta" placeholder="example@mail.com" required>
+                </div>
+                <div class="label">
+                    <label for="password">Пароль</label>
+                    <input class="login_input" type="password" id="password" required>
+                </div>
+                <div>
+                    <input type="submit" class="button_login" value="Войти">
+                    <p><a href="">Забыл пароль</a></p>
+                    <p>Нет аккаунта? <a href="">Регистрация</a></p>
+                </div>
+            </div>
+            <div class="squares" id="squares_1"></div>
+            <div class="squares" id="squares_2"></div>
+            <div class="squares" id="squares_3"></div>
+        </main>
+    </body>
+    <footer>
+        <address>Горячая линия:<a href="tel:+79538394548"> +7 (123) 456 78-90</address> <!--Перенаправляет на звонок по номеру указанному после tel:--></div>
+        <address>Напишите нам:<a href="mailto:drive_rent@mail.ru"> drive_rent@mail.ru</a></address> <!--Открывает почтовый агент по адресу указанному после mailto:--></div>
+        <address>Разработчик сайта: <a href="mailto:drive_rent@mail.ru">Байэл</a></address>
+        <div class="social_media">
+            <div class="youtube"><img src="./icons/youtube_transparent.png"></div>
+            <div class="vk"><img src="./icons/vk_transparent.png"></div>
+            <div class="telegram"><img src="./icons/telegram_transparent.png"></div>
+            <div class="whatsapp"><img src="./icons/whatsapp_whitetube.png"></div>
+        </div>
+    </footer>
+</html>

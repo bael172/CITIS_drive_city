@@ -43,23 +43,26 @@
     counter-increment:list-counter;
     display: inline;
 }
+.flex-row{
+    display:flex;
+    justify-content:space-around;
+    margin-block:2rem;
+}
 .a_button{
-    display: inline-block;
-    margin-inline: calc(100vw/2 - 20em);
-    height:3em; 
-    padding-inline:10em; 
-    padding-block:0.5em; 
-    background:green; 
-    border:white 1em; 
-    margin-block:10%; 
+    height:auto;
+    padding: 1em 3em; 
+    background:linear-gradient(greenyellow,green);
+    border-radius: 10px;
     color:white; 
     text-align: center; 
     vertical-align:text-bottom;
     text-decoration: none;
 }
 .a_button:hover{
-    background-color: rgb(34, 188, 34);
-    box-shadow: 1px 1px 10px 10px greenyellow;
+    box-shadow: 0px 0px 5px 5px rgb(97, 120, 61);
+}
+.a_button:active{
+    background:linear-gradient(green,greenyellow);
 }
 .glass_cards{
     background-image:linear-gradient(rgb(54, 57, 124),rgb(11, 11, 37));
@@ -178,3 +181,4 @@
     drop-shadow(-5px 5px 5px rgb(7, 173, 79))
     drop-shadow(-5px -5px 5px rgb(189, 230, 7))
 }
+

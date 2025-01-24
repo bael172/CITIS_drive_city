@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <link rel="stylesheet" href="./css/colorful_cards.css">
+        <link rel="icon" href="favicon.ico" sizes="any">
+        <title>Colorful cards</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <span id="logo" href="./index.html"><div id="drive">Drive</div> <div id="city">City</div></span>
+                <a href="https://auto.ru/" target="_blank">Автопарк</a>
+                <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
+                <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
+                <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
+                <div class="flex-end">
+                    <a class="log_in" target="_blank" href="login.html"><div>Войти</div></a>
+                    <div class="nav_icon">
+                        <img id="support-icon" src="./icons/support.png">
+                    </div>
+                    <div class = "nav_icon" id="notifications" >
+                        <div id="count">4</div>
+                        <img id="bell" src="./icons/bell.png">
+                        <div id="body">
+                            <ol>
+                                <li>Ваш промокод на первую аренду</li>
+                                <div>NGINX2025</div>
+                                <li>Вы успешно зашли в систему</li>
+                                <li>Вы прошли проверку. Водительское удостоверение проверено</li>
+                                <li>Данные водительского удостоверения отправлены на проверку</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img id="burger-bar" class="icon active" src="./icons/burger-bar.png">
+                        <img id="close" class="icon inactive" src="./icons/close.png">
+                    </div>
+                </div>
+            </nav>
+            <div class="dropdown-menu">
+                <a href="https://auto.ru/"><div>Автопарк</div></a>
+                <a href="https://citydrive.ru/msk/carsharing/"><div>Каршеринг</div></a>
+                <a href="https://citydrive.ru/msk/longtermrental/"><div>Долгая аренда</div></a>
+                <a href="https://citydrive.ru/prokat/msk"><div>Прокат авто</div></a>
+            </div>
+        </header>
+        <main>
+            <div class="cards-in-row">
+                <div class="card">
+                    <div class="title">
+                        <img src="./images/ford.webp">
+                    </div>
+                    <div class="content" id="ford">
+                        <p>Американская автомобилестроительная компания. Четвёртый в мире производитель автомобилей по объёму выпуска за весь период существования. Первой применила конвейерное производство. 
+                        </p>
+                    </div>
+                    <button class="button_more_info" id="button_1">Подробнее</button>
+                </div>
+                <div class="card">
+                    <div class="title">
+                        <img src="./images/nissan.jpg">
+                    </div>
+                    <div class="content" id="nissan">
+                        <p>Ниссан</p>
+                    </div>
+                </div>
+                    <button class="button_more_info" id="button_2">Подробнее</button>
+            </div>
+        </main>
+        <footer>
+            <address>Горячая линия:<a href="tel:+79538394548"> +7 (123) 456 78-90</address> <!--Перенаправляет на звонок по номеру указанному после tel:--></div>
+            <address>Напишите нам:<a href="mailto:drive_rent@mail.ru"> drive_rent@mail.ru</a></address> <!--Открывает почтовый агент по адресу указанному после mailto:--></div>
+            <address>Разработчик сайта: <a href="mailto:drive_rent@mail.ru">Байэл</a></address>
+            <div class="social_media">
+                <div class="youtube"><img src="./icons/youtube_transparent.png"></div>
+                <div class="vk"><img src="./icons/vk_transparent.png"></div>
+                <div class="telegram"><img src="./icons/telegram_transparent.png"></div>
+                <div class="whatsapp"><img src="./icons/whatsapp_whitetube.png"></div>
+            </div>
+        </footer>
+    </body>
+    <script>
+        let buttons=document.getElementsByClassName("button_more_info")
+        let cards_contents = document.querySelectorAll(".card .content")
+        for(let i=0;i<buttons.length;i++){
+            const button = buttons[i]
+            const card_content = cards_contents[i]
+            mark_desc=[]
+            mark_desc[0]=`Основатель: Генри Форд. До текущего момента управляется семьёй Фордов.
+            Имеет крупные заводы во Франции, Великобритании и Германии. В годы WW1 компания производила помимо автомобилей, авиационные двигатели, танки и боеприпасы. В годы WW2 Помогала нацистом и Америки с разработкой и массовым выпуском автомобилей, грузовой, авиационной и гусеничной техники. 
+            Выпускала автомобили марки Mercury и Linkoln. Ford купила а затем продала компании: Jaguar, Aston Martins, Volvo Cars, Land Rover.
+            Известные модели Ford: Модель А, Модель Т, Модель В, Fairline, Taurus, Focus, Mondeo, Mustang, GT, Transit
+            Выпускает легковые, грузовые автомобили, спорткары. На шасси Ford производятся жёлтые школьные автобусы
+            В числе крупнейших компаний США по размеру выручки в 2022 году.`
+            card_content.setAttribute("data-description",mark_desc[i])
+            button.addEventListener("click",(event)=>{
+                card_content.classList.toggle("active")
+            })
+        }
+    </script>
+</html>

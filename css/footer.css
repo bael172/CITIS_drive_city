@@ -1,7 +1,11 @@
 footer{
+    width:100%;
     color: white;
-    background-color:rgb(32, 23, 60);
-    padding:30px 100px 30px;
+    --footer-color:rgb(32, 23, 60);
+    --social_media-width:50px;
+    --social_media-height:50px;
+    background-color: var(--footer-color);
+    padding:2vmax 5vmax 2vmax;
 }
 footer address{
     margin-block-end: 10px;
@@ -13,4 +17,54 @@ footer a{
 footer a:hover{
     text-decoration: underline;
     color:blue;
+}
+footer .social_media{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: flex-start;
+    /*gap:30px calc(20vw - var(--social_media-width));*/
+    gap:30px 5vw;
+}
+.social_media>*{
+    position: relative;
+    min-width:var(--social_media-width);
+    min-height:var(--social_media-height);
+    border-radius: 25px;
+    z-index:1;
+}
+.social_media img{
+    position:absolute;
+    top:15%;
+    left:15%;
+    width:35px;
+    height:auto;
+    z-index:3;
+}
+.social_media>*::before{
+    color:white;
+    content:'';
+    position:absolute;
+    width:var(--social_media-width);
+    height:var(--social_media-height);
+    background-color:var(--footer-color);
+    z-index:2;
+}
+.social_media .youtube{
+    background-image: linear-gradient(rgb(255, 62, 107),red);
+}
+.social_media .vk{
+    background-image: linear-gradient(rgb(0, 255, 255),blue);
+}
+.social_media .whatsapp{
+    background-image: linear-gradient(rgb(157, 255, 0),rgb(4, 194, 4));
+}
+.social_media .telegram{
+    background-image: linear-gradient(rgb(72, 206, 251),rgb(14, 145, 252));
+}
+.social_media>*:hover{
+    cursor:pointer;
+}
+.social_media>*:hover::before{
+    height:0px;
+    transition:height 0.5s ease-in-out;
 }
