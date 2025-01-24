@@ -22,6 +22,7 @@ main{
     width: min-content;
     background-color: white;
     border-radius:20px;
+    overflow-y: auto;
 }
 .card .title{
     display:flex;
@@ -49,6 +50,23 @@ main{
     display:block;
     padding:2rem 1rem;
 }
-.card .content .active{
-    max-height: 800px;
+.card .content::after{
+    content: '';
+}
+.card .content::after .active{
+    content:attr(data-description);
+}
+.button_more_info{
+    padding:0.5rem 1rem;
+    color:white;
+    border-radius:5px;
+    margin-block:1rem;
+    border:none;
+    cursor: pointer;
+}
+#button_1{
+    background-color: orange;
+}
+#button_2{
+    background-color: red;
 }

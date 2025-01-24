@@ -54,8 +54,9 @@
                     <div class="content" id="ford">
                         <p>Американская автомобилестроительная компания. Четвёртый в мире производитель автомобилей по объёму выпуска за весь период существования. Первой применила конвейерное производство. 
                         </p>
+                        <button class="button_more_info" id="button_1">Подробнее</button>
                     </div>
-                    <button class="button_more_info" id="button_1">Подробнее</button>
+
                 </div>
                 <div class="card">
                     <div class="title">
@@ -63,9 +64,10 @@
                     </div>
                     <div class="content" id="nissan">
                         <p>Ниссан</p>
+                        <button class="button_more_info" id="button_2">Подробнее</button>
                     </div>
                 </div>
-                    <button class="button_more_info" id="button_2">Подробнее</button>
+
             </div>
         </main>
         <footer>
@@ -96,6 +98,12 @@
             card_content.setAttribute("data-description",mark_desc[i])
             button.addEventListener("click",(event)=>{
                 card_content.classList.toggle("active")
+                if(card_content.classList.contains("active")){
+                    card_content.style.height="fit-content"
+                }
+                else{
+                    card_content.style.height="initial";
+                }
             })
         }
     </script>
