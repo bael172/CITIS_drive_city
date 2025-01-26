@@ -17,13 +17,31 @@ main{
     align-items: first baseline;
 }
 .wrapper {
-    position: relative;
+    position: relative; /* Создает контекст наложения */
     padding: 5px;
     background-color: black;
     border-radius: 5px;
-    z-index: 0;
+    z-index: 1;
     overflow: hidden;
 }
+
+.card {
+    position: relative;  /* Позволяет корректно расположить карту внутри wrapper */
+    display: flex;
+    flex-flow: column nowrap;
+    width: max-content;
+    box-sizing: border-box;
+    max-width: 30vw;
+    padding: 5rem 3rem;
+    background-color: rgb(8, 4, 68);
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    color: rgb(181, 180, 180);
+    overflow: hidden;
+    z-index: 3; /* Размещаем карту выше псевдоэлемента */
+    filter:brightness(80%);
+}
+
 /* Анимацию и стили применяем на wrapper */
 .wrapper::before {
     content: '';
@@ -35,32 +53,77 @@ main{
     transform: translate(-50%, -50%);
     transform-origin: center center;
     animation: rotate_rect 10s infinite linear;
+     background-image: linear-gradient(blue, rgb(2, 2, 52)), linear-gradient(rgb(2, 2, 52), blue);
+    background-repeat: no-repeat;
+    background-position: left center, right center;
+    background-size: 50% auto, 50% auto;
+    z-index: -1;
+    pointer-events: none;
+     transition: opacity 0.3s ease;
+     display: flex;
+     opacity: 0;  /* Изначально скрываем псевдоэлемент */
+}
+/* Показывать анимацию при наведении на wrapper*/
+.wrapper:hover::before {
+  opacity: 1;
+}
+.wrapper:hover .card{
+    color:white;
+    filter:brightness(100%);
+}
+
+/*
+.wrapper {
+    position: relative;
+    padding: 5px;
+    background-color: black;
+    border-radius: 5px;
     z-index: 1;
+    overflow: hidden;
+}
+.card{
+    position:static; /*при relative - card::before накладвается на card вне зависимости от z-indexa
+    display:flex;
+    flex-flow:column nowrap;
+    width: max-content;
+    box-sizing: border-box;
+    max-width: 30vw;
+    padding:5rem 3rem;
+    background-color: rgb(8, 4, 68);
+    border-radius:5px;
+    transition: all 0.5s ease;
+    color:rgb(181, 180, 180);
+    overflow: hidden;
+    /*filter:brightness(70%);
+}
+/* Анимацию и стили применяем на card
+.card::after {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 100px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    animation: rotate_rect 10s infinite linear;
+    background-image: linear-gradient(blue, rgb(2, 2, 52)), linear-gradient(rgb(2, 2, 52), blue);
+    background-repeat: no-repeat;
+    background-position: left center, right center;
+    background-size: 50% auto, 50% auto;
     opacity: 0;
+    z-index: -1;
     pointer-events: none;
     transition: opacity 0.3s ease;
     display: flex;
 }
-.wrapper:hover::before {
+.card:hover{
+    color:white;
+}
+.card:hover::after {
     opacity: 1;
 }
-.wrapper::before::before,
-.wrapper::before::after {
-     content: '';
-    position: absolute;
-    display: inline-block;
-    width: 50%;
-    height: 100%;
-}
-.wrapper::before::before {
-    background-image: linear-gradient(blue, rgb(2, 2, 52));
-     z-index: 2;
-}
-.wrapper::before::after{
-    left: 50%;
-     background-image: linear-gradient(rgb(2, 2, 52), blue);
-      z-index: 2;
-}
+*/
 /*
 .wrapper::after{    /*before - .card:hover::before
     content:'';
@@ -106,21 +169,6 @@ main{
     to{
         transform: translate(-50%, -50%) rotate(360deg);
     }
-}
-.card{
-    position: relative;
-    display:flex;
-    flex-flow:column nowrap;
-    width: max-content;
-    box-sizing: border-box;
-    max-width: 30vw;
-    padding:5rem 3rem;
-    background-color: rgb(8, 4, 68);
-    border-radius:5px;
-    transition: all 0.5s ease;
-    color:rgb(181, 180, 180);
-    overflow: hidden;
-    z-index: 3;
 }
 .card .title{
     font-size: large;
