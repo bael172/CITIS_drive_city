@@ -1,0 +1,145 @@
+@import url(header.css);
+@import url(footer.css);
+body{
+    margin:0;
+}
+main{
+    margin-top:-20px;
+    padding:2rem 0;
+    --background-image:linear-gradient(rgb(41, 41, 51),rgb(2, 2, 36));
+    --bottom-color:rgb(2, 2, 36);
+    background-image:var(--background-image);
+}
+.cards-in-row{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-evenly;
+    align-items: first baseline;
+}
+.wrapper {
+    position: relative;
+    padding: 5px;
+    background-color: black;
+    border-radius: 5px;
+    z-index: 0;
+    overflow: hidden;
+}
+/* Анимацию и стили применяем на wrapper */
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    animation: rotate_rect 10s infinite linear;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+}
+.wrapper:hover::before {
+    opacity: 1;
+}
+.wrapper::before::before,
+.wrapper::before::after {
+     content: '';
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+}
+.wrapper::before::before {
+    background-image: linear-gradient(blue, rgb(2, 2, 52));
+     z-index: 2;
+}
+.wrapper::before::after{
+    left: 50%;
+     background-image: linear-gradient(rgb(2, 2, 52), blue);
+      z-index: 2;
+}
+/*
+.wrapper::after{    /*before - .card:hover::before
+    content:'';
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:300%;
+    height:100px;
+    transform: translate(-50%,-50%);
+    background-color: blue; /*if red - for test | transparent/none for common
+    transform-origin: center center;
+    animation:rotate_rect 10s infinite linear;
+    z-index:2;
+    display:flex;
+    opacity: 0;
+    pointer-events: none;
+}
+.wrapper:hover::after{
+    opacity: 1;
+}
+.wrapper::after::before, /*before - .card:hover::before::before, .card:hover::before::after 
+.wrapper::after::after{
+    content:'';
+    display:inline-block;
+    position:absolute;
+    width:50%;
+    height:100%;
+}
+.wrapper::after::before{ /*.card:hover::before::before
+    background-image:linear-gradient(blue,rgb(2, 2, 52));
+    z-index:2;
+}
+.wrapper::after::after{ /*.card:hover::before::after
+    left:50%;
+    background-image:linear-gradient(rgb(2, 2, 52),blue);
+    z-index:2;
+}
+*/
+@keyframes rotate_rect{
+    from{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+.card{
+    position: relative;
+    display:flex;
+    flex-flow:column nowrap;
+    width: max-content;
+    box-sizing: border-box;
+    max-width: 30vw;
+    padding:5rem 3rem;
+    background-color: rgb(8, 4, 68);
+    border-radius:5px;
+    transition: all 0.5s ease;
+    color:rgb(181, 180, 180);
+    overflow: hidden;
+    z-index: 3;
+}
+.card .title{
+    font-size: large;
+    align-self: center;
+    margin-bottom: 2rem;
+}
+.card .title img{
+    height:100px;
+    width:auto;
+}
+.card .button_more_info{
+    align-self: center;
+    background-color: white;
+    border:transparent 1px solid;
+    color:var(--bottom-color);
+    padding:0.2rem 1rem;
+    margin-block:1rem;
+    text-align: center;
+    font-size:medium;
+    font-weight:bold;
+    cursor: pointer;
+}

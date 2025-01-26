@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <link rel="stylesheet" href="./css/blur_cards.css">
+        <link rel="icon" href="favicon.ico" sizes="any">
+        <title>Blur cards</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <span id="logo" href="./index.html"><div id="drive">Drive</div> <div id="city">City</div></span>
+                <a href="https://auto.ru/" target="_blank">Автопарк</a>
+                <a href="https://citydrive.ru/msk/carsharing/" target="_blank">Каршеринг</a>
+                <a href="https://citydrive.ru/msk/longtermrental/" target="_blank">Долгая аренда</a>
+                <a href="https://citydrive.ru/prokat/msk" target="_blank">Прокат авто</a>
+                <div class="flex-end">
+                    <a class="log_in" target="_blank" href="login.html"><div>Войти</div></a>
+                    <div class="nav_icon">
+                        <img id="support-icon" src="./icons/support.png">
+                    </div>
+                    <div class = "nav_icon" id="notifications" >
+                        <div id="count">4</div>
+                        <img id="bell" src="./icons/bell.png">
+                        <div id="body">
+                            <ol>
+                                <li>Ваш промокод на первую аренду</li>
+                                <div>NGINX2025</div>
+                                <li>Вы успешно зашли в систему</li>
+                                <li>Вы прошли проверку. Водительское удостоверение проверено</li>
+                                <li>Данные водительского удостоверения отправлены на проверку</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img id="burger-bar" class="icon active" src="./icons/burger-bar.png">
+                        <img id="close" class="icon inactive" src="./icons/close.png">
+                    </div>
+                </div>
+            </nav>
+            <div class="dropdown-menu">
+                <a href="https://auto.ru/"><div>Автопарк</div></a>
+                <a href="https://citydrive.ru/msk/carsharing/"><div>Каршеринг</div></a>
+                <a href="https://citydrive.ru/msk/longtermrental/"><div>Долгая аренда</div></a>
+                <a href="https://citydrive.ru/prokat/msk"><div>Прокат авто</div></a>
+            </div>
+        </header>
+        <main>
+            <div class="cards-in-row">
+                <div class="card">
+                    <div class="title">
+                        <img src="./images/ford.webp">
+                    </div>
+                    <div class="content" id="ford">
+                        <p>Ford - Американская автомобилестроительная компания. Четвёртый в мире производитель автомобилей по объёму выпуска за весь период существования. Первой применила конвейерное производство. \
+                            Помимо легковых автомобилей за свою историю производила грузовую, военную колёсную и гусеничную технику, авиационные запчасти и двигатели
+                        </p>
+                    </div>
+                    <button class="button_more_info" id="button_1">Подробнее</button>
+                </div>
+                <div class="card">
+                    <div class="title">
+                        <img src="./images/nissan.jpg">
+                    </div>
+                    <div class="content" id="nissan">
+                        <p>Nissan - Японский автопроизводитель, один из крупнейших в мире. Компания основана в 1933 году. Штаб-квартира находится в городе Иокогама. Входит в Альянс Renault–Nissan–Mitsubishi.
+                            Известные модели: Almera, Patrol, Terrano II, Maxima QX, Primera, Micra, Teana, X-Trail, Murano, Qashqai, Pathfinder
+                        </p>
+                    </div>
+                    <button class="button_more_info" id="button_2">Подробнее</button>
+                </div>
+                <div class="card">
+                    <div class="title">
+                        <img src="./images/toyota.webp">
+                    </div>
+                    <div class="content" id="toyota">
+                        <p>
+                           Toyota - Японская автомобилестроительная корпорация, также предоставляющая финансовые услуги и имеющая несколько дополнительных направлений в бизнесе. 
+                           Является крупнейшей автомобилестроительной публичной компанией в мире, а также крупнейшей публичной компанией в Японии. 
+                        </p>
+                    </div>
+                    <button class="button_more_info" id="button_2">Подробнее</button>
+                </div>
+
+            </div>
+        </main>
+        <footer>
+            <address>Горячая линия:<a href="tel:+79538394548"> +7 (123) 456 78-90</address> <!--Перенаправляет на звонок по номеру указанному после tel:--></div>
+            <address>Напишите нам:<a href="mailto:drive_rent@mail.ru"> drive_rent@mail.ru</a></address> <!--Открывает почтовый агент по адресу указанному после mailto:--></div>
+            <address>Разработчик сайта: <a href="mailto:drive_rent@mail.ru">Байэл</a></address>
+            <div class="social_media">
+                <div class="youtube"><img src="./icons/youtube_transparent.png"></div>
+                <div class="vk"><img src="./icons/vk_transparent.png"></div>
+                <div class="telegram"><img src="./icons/telegram_transparent.png"></div>
+                <div class="whatsapp"><img src="./icons/whatsapp_whitetube.png"></div>
+            </div>
+        </footer>
+    </body>
+    <script>
+        mark_desc=[]
+        mark_desc[0]=`Основатель: Генри Форд. До текущего момента управляется семьёй Фордов.
+            Имеет крупные заводы во Франции, Великобритании и Германии. В годы WW1 компания производила помимо автомобилей, авиационные двигатели, танки и боеприпасы. В годы WW2 Помогала нацистом и Америки с разработкой и массовым выпуском автомобилей, грузовой, авиационной и гусеничной техники. 
+            Выпускала автомобили марки Mercury и Linkoln. Ford купила а затем продала компании: Jaguar, Aston Martins, Volvo Cars, Land Rover.
+            Известные модели Ford: Модель А, Модель Т, Модель В, Fairline, Taurus, Focus, Mondeo, Mustang, GT, Transit
+            Выпускает легковые, грузовые автомобили, спорткары. На шасси Ford производятся жёлтые школьные автобусы
+            В числе крупнейших компаний США по размеру выручки в 2022 году.`
+        mark_desc[1]=`Под маркой «Nissan» выпускается широкий ассортимент легковых и коммерческих автомобилей. Также компания продаёт автомобили класса «люкс» под маркой «Infiniti». До 1983 года и начиная с 1997 года также выпускаются автомобили под маркой «Datsun»
+            Дата основания: 26 декабря 1933. После Второй мировой войны компания развивалась при технической поддержке зарубежных автопроизводителей, таких как Renault, Hillman, и Willys-Overland.
+            В 1958 году начались поставки автомобилей в США, а в 1964 году стала первой японской компанией, вошедшей в десятку крупнейших автоимпортёров в США. В 1962 году начались поставки автомобилей в Европу. Первое зарубежное сборочное производство Nissan было открыто в 1959 году на Тайване, в 1960-х годах заводы компании появились в Мексике, Перу и Австралии
+            В середине 1990-х годов компания испытывала существенные финансовые трудности, уже в 1992 году Nissan впервые в своей истории показал убытки, которые начали нарастать; долг компании составлял 32 млрд долларов. В 1994 году Nissan первым из японских автопроизводителей закрыл завод в Японии, также были проведены сокращения персонала в других странах. Когда в 1999 году до банкротства оставалось несколько недель, 36,8 % акций компании был куплен за 5,4 млрд долларов французской Renault; в 2002 году французская компания увеличила свою долю до 44,4 % акций, а Nissan, в свою очередь, приобрела 15 % акций Renault[6].
+            Поставленный «Рено» во главе «Ниссан» Карлос Гон сумел воплотить программу возрождения фирмы (англ. Nissan Revival Plan, NRP) и вывел компанию из кризиса, вследствие чего обрёл большую популярность в Японии. Программа включала продажу неосновных активов, таких как подразделения аэрокосмических технологий и мобильной связи, доли в компании Fuji Heavy Industries, а также закрытие 5 заводов в Японии и дальнейшие сокращения рабочих.
+            В июне 2003 года было создано совместное предприятие с китайской группой Dongfeng`
+        mark_desc[2]=`Главный офис компании находится в городе Тоёта, префектура Айти, Япония. 
+            В списке крупнейших публичных компаний мира Forbes Global 2000 за 2022 год Toyota Motor заняла 10-е место, 
+            а в списке Fortune Global 500 — 13-е место. Toyota стала первым в мире производителем автомобилей, который производил более 10 миллионов автомобилей в год, что стало рекордом, установленным в 2012 году, когда она также сообщила о производстве своего 200-миллионного автомобиля. 
+            К сентябрю 2023 года Toyota произвела свой 300-миллионный автомобиль
+            Известные модели: Camry, Corolla, Avalon, Previa/Estima, Sienna, Matrix, RAV4, Venza, Kluger`
+        const main = document.getElementsByTagName("main")
+        const cards_in_row = document.getElementsByClassName("cards-in-row")
+        const buttons=document.getElementsByClassName("button_more_info")
+        //const cards = document.getElementsByClassName("card")
+        const cards_contents = document.querySelectorAll(".card .content")
+        for(let i=0;i<buttons.length;i++){
+            const button = buttons[i]
+            const card_content = cards_contents[i]
+            card_content.setAttribute("data-description",mark_desc[i])
+            button.addEventListener("click",(event)=>{
+                card_content.classList.toggle("active")
+                if(card_content.classList.contains("active")){
+                    card_content.style.height="fit-content"
+                }
+                else{
+                    card_content.style.height="initial";
+                }
+            })
+        }
+        /*
+        Array.from(cards).forEach(card=>{     //Array.from(cards) и [...cards] - методы для превращения HTML Collection в массив
+            card.addEventListener('mouseenter',(event)=>{
+                [...cards].forEach(other_card=>{
+                    if(other_card!==this){
+                        other_card.classList.add('blurred')
+                    }
+                })
+            })
+            card.addEventListener('mouseleave',(event)=>{
+                Array.from(cards).forEach(other_card=>{
+                    other_card.classList.remove('blurred')
+                })
+            })
+        })
+        */
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            cards.forEach(otherCard => {
+            if (otherCard !== this) {
+                otherCard.classList.add('blurred');
+            }
+            });
+        });
+
+        card.addEventListener('mouseleave', function() {
+            cards.forEach(otherCard => {
+            otherCard.classList.remove('blurred');
+            });
+        });
+        });
+        
+    </script>
+</html>

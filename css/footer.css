@@ -1,5 +1,5 @@
 footer{
-    width:100%;
+    max-width:100vw;
     color: white;
     --footer-color:rgb(32, 23, 60);
     --social_media-width:50px;
